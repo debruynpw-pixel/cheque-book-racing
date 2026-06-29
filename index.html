@@ -274,15 +274,27 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
 /* ============ RESPONSIVE ============ */
 @media(max-width:880px){
   .about-grid,.contact-grid{grid-template-columns:1fr}
-  .nav-links{position:fixed;inset:0 0 0 auto;width:min(82vw,320px);flex-direction:column;align-items:stretch;
-    justify-content:flex-start;gap:6px;padding:90px 20px 30px;background:rgba(10,12,18,.97);backdrop-filter:blur(16px);
-    border-left:1px solid var(--line);transform:translateX(100%);transition:.4s var(--ease);z-index:99}
+  /* drop backdrop-filter so the pill is NOT a containing block for the fixed menu panel */
+  .nav-in{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(10,12,18,.92)}
+  .nav.scrolled .nav-in{background:rgba(10,12,18,.96)}
+  .nav-links{position:fixed;inset:0 0 0 auto;width:min(82vw,320px);height:100svh;flex-direction:column;align-items:stretch;
+    justify-content:flex-start;gap:6px;padding:90px 22px 30px;background:#0c0e16;
+    border-left:1px solid var(--line);box-shadow:-20px 0 50px rgba(0,0,0,.6);
+    transform:translateX(100%);transition:.4s var(--ease);z-index:99;overflow-y:auto}
   .nav-links.open{transform:none}
   .nav-links a{padding:14px 16px;font-size:1.05rem}
   .nav-links .btn{margin-top:10px;justify-content:center}
-  .nav-toggle{display:flex}
+  .nav-toggle{display:flex;position:relative;z-index:130}
   .nav-cta-desktop{display:none}
 }
+/* hamburger -> X */
+.nav-toggle.open span{background:transparent}
+.nav-toggle.open span::before{top:0;transform:rotate(45deg)}
+.nav-toggle.open span::after{top:0;transform:rotate(-45deg)}
+/* menu backdrop */
+.nav-scrim{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.55);opacity:0;visibility:hidden;transition:.3s var(--ease)}
+.nav-scrim.show{opacity:1;visibility:visible}
+@media(min-width:881px){.nav-scrim{display:none}}
 @media(max-width:520px){
   .two{grid-template-columns:1fr}
   .hero-stats{gap:20px}
@@ -343,6 +355,7 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
+<div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
 
 <main id="top">
 
@@ -351,9 +364,9 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
   <div class="wrap hero-center">
     <p class="eyebrow" style="opacity:0;animation:fadeUp .8s .35s var(--ease) forwards">Krugersdorp · Motorcycle Specialists</p>
     <h1>
-      <span class="ln"><span>Ride In.</span></span>
-      <span class="ln"><span class="grad">Stand Out.</span></span>
-      <span class="ln"><span>Ride Out.</span></span>
+      <span class="ln"><span>Serviced.</span></span>
+      <span class="ln"><span class="grad">Styled.</span></span>
+      <span class="ln"><span>Unleashed.</span></span>
     </h1>
     <p class="lead">Full motorcycle servicing, maintenance, custom makeovers, vinyl wrapping &amp; premium paint. We build bikes that turn heads — and run like they mean it.</p>
     <div class="hero-cta">
@@ -743,12 +756,23 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
   window.addEventListener("scroll", function(){
     nav.classList.toggle("scrolled", window.scrollY > 30);
   }, {passive:true});
-  navToggle.addEventListener("click", function(){
-    var open = navLinks.classList.toggle("open");
+  var navScrim = $("navScrim");
+  function setMenu(open){
+    navLinks.classList.toggle("open", open);
+    navToggle.classList.toggle("open", open);
+    if(navScrim) navScrim.classList.toggle("show", open);
     navToggle.setAttribute("aria-expanded", open);
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  navToggle.addEventListener("click", function(e){
+    e.stopPropagation();
+    setMenu(!navLinks.classList.contains("open"));
   });
+  if(navScrim) navScrim.addEventListener("click", function(){ setMenu(false); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") setMenu(false); });
   navLinks.querySelectorAll("a").forEach(function(a){
-    a.addEventListener("click", function(){ navLinks.classList.remove("open"); navToggle.setAttribute("aria-expanded","false"); });
+    a.addEventListener("click", function(){ setMenu(false); });
   });
 
   // ============ TILT (services) ============
