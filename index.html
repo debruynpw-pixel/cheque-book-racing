@@ -110,23 +110,32 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s var(--
 .nav-toggle span::before{top:-6px}.nav-toggle span::after{top:6px}
 
 /* ============ HERO ============ */
-.hero{min-height:100svh;display:flex;align-items:center;padding-top:120px;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,60px);align-items:center;width:100%}
-.hero h1{font-size:clamp(2.6rem,8vw,5.4rem);text-transform:uppercase}
+.hero{min-height:100svh;display:flex;align-items:center;padding-top:120px;z-index:1;overflow:hidden}
+.hero-center{width:100%;max-width:880px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(2.8rem,11vw,6rem);text-transform:uppercase}
 .hero h1 .ln{display:block;overflow:hidden}
 .hero h1 .ln span{display:block;transform:translateY(110%);animation:rise .9s var(--ease) forwards}
 .hero h1 .ln:nth-child(2) span{animation-delay:.12s}
 .hero h1 .ln:nth-child(3) span{animation-delay:.24s}
 @keyframes rise{to{transform:translateY(0)}}
-.hero p.lead{margin:22px 0 30px;color:var(--muted);font-size:clamp(1rem,2.4vw,1.18rem);max-width:30em;
+.hero p.lead{margin:24px auto 32px;color:var(--muted);font-size:clamp(1rem,2.4vw,1.2rem);max-width:34em;
   opacity:0;animation:fadeUp .8s .5s var(--ease) forwards}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;opacity:0;animation:fadeUp .8s .65s var(--ease) forwards}
-.hero-stats{display:flex;gap:28px;margin-top:38px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s var(--ease) forwards}
-.hero-stats .st b{font-family:'Oswald',sans-serif;font-size:1.9rem;color:var(--gold);display:block;line-height:1}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;opacity:0;animation:fadeUp .8s .65s var(--ease) forwards}
+.hero-stats{display:flex;gap:clamp(24px,6vw,52px);margin-top:44px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .8s .8s var(--ease) forwards}
+.hero-stats .st b{font-family:'Oswald',sans-serif;font-size:clamp(1.7rem,5vw,2.1rem);color:var(--gold);display:block;line-height:1}
 .hero-stats .st small{color:var(--muted);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.hero-art{position:relative;display:flex;align-items:center;justify-content:center}
-.hero-badge{display:block;width:min(80vw,440px);aspect-ratio:1;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+/* checkered racing ribbon */
+.hero-ribbon{position:absolute;left:-6%;right:-6%;bottom:6%;height:clamp(44px,7vw,68px);z-index:1;
+  transform:rotate(-3.5deg);overflow:hidden;
+  border-top:2px solid rgba(212,168,56,.5);border-bottom:2px solid rgba(212,168,56,.5);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  opacity:0;animation:fadeUp 1s 1s var(--ease) forwards}
+.hero-ribbon .checker{position:absolute;inset:0;width:200%;
+  background-image:conic-gradient(rgba(244,239,225,.16) 90deg,transparent 0 180deg,rgba(244,239,225,.16) 0 270deg,transparent 0);
+  background-size:34px 34px;animation:slide 6s linear infinite}
+@keyframes slide{to{transform:translateX(-34px)}}
 
 /* ============ SECTION HEADER ============ */
 .sec-head{max-width:640px;margin:0 auto clamp(40px,6vw,68px);text-align:center}
@@ -264,8 +273,7 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:880px){
-  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
-  .hero-art{order:-1;max-width:340px;margin:0 auto}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
   .nav-links{position:fixed;inset:0 0 0 auto;width:min(82vw,320px);flex-direction:column;align-items:stretch;
     justify-content:flex-start;gap:6px;padding:90px 20px 30px;background:rgba(10,12,18,.97);backdrop-filter:blur(16px);
     border-left:1px solid var(--line);transform:translateX(100%);transition:.4s var(--ease);z-index:99}
@@ -340,29 +348,26 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow" style="opacity:0;animation:fadeUp .8s .35s var(--ease) forwards">Krugersdorp · Motorcycle Specialists</p>
-      <h1>
-        <span class="ln"><span>Ride In.</span></span>
-        <span class="ln"><span class="grad">Stand Out.</span></span>
-        <span class="ln"><span>Ride Out.</span></span>
-      </h1>
-      <p class="lead">Full motorcycle servicing, maintenance, custom makeovers, vinyl wrapping &amp; premium paint. We build bikes that turn heads — and run like they mean it.</p>
-      <div class="hero-cta">
-        <a class="btn btn-pri" href="#quote">Build My Quote →</a>
-        <a class="btn btn-ghost" href="#gallery">See The Builds</a>
-      </div>
-      <div class="hero-stats">
-        <div class="st"><b>5★</b><small>Workmanship</small></div>
-        <div class="st"><b>100%</b><small>Custom</small></div>
-        <div class="st"><b>2025</b><small>Established</small></div>
-      </div>
+  <div class="wrap hero-center">
+    <p class="eyebrow" style="opacity:0;animation:fadeUp .8s .35s var(--ease) forwards">Krugersdorp · Motorcycle Specialists</p>
+    <h1>
+      <span class="ln"><span>Ride In.</span></span>
+      <span class="ln"><span class="grad">Stand Out.</span></span>
+      <span class="ln"><span>Ride Out.</span></span>
+    </h1>
+    <p class="lead">Full motorcycle servicing, maintenance, custom makeovers, vinyl wrapping &amp; premium paint. We build bikes that turn heads — and run like they mean it.</p>
+    <div class="hero-cta">
+      <a class="btn btn-pri" href="#quote">Build My Quote →</a>
+      <a class="btn btn-ghost" href="#gallery">See The Builds</a>
     </div>
-    <div class="hero-art">
-      <span class="hero-badge" id="heroBadge"></span>
+    <div class="hero-stats">
+      <div class="st"><b>5★</b><small>Workmanship</small></div>
+      <div class="st"><b>100%</b><small>Custom</small></div>
+      <div class="st"><b>2025</b><small>Established</small></div>
     </div>
   </div>
+  <!-- animated checkered racing ribbon -->
+  <div class="hero-ribbon" aria-hidden="true"><div class="checker"></div></div>
 </section>
 
 <!-- ===== SERVICES ===== -->
@@ -655,17 +660,10 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
     s+='<line x1="-1" y1="-2" x2="-1" y2="16" stroke="#3a4256" stroke-width="1.5"/></g>';
     return s;
   }
-  ["navBadge","heroBadge","footBadge"].forEach(function(id){
+  ["navBadge","footBadge"].forEach(function(id){
     var el=$(id); if(!el) return;
-    var alt = "Cheque Book Racing logo";
-    el.innerHTML = '<img src="logo.jpg" alt="'+alt+'" class="logo-img" decoding="async">';
+    el.innerHTML = '<img src="logo.jpg" alt="Cheque Book Racing logo" class="logo-img" decoding="async">';
   });
-
-  // hero badge gentle float + ring spin accent
-  (function(){
-    var hb = $("heroBadge");
-    if(hb){ hb.style.animation = "drift 8s ease-in-out infinite alternate"; hb.style.display="block"; }
-  })();
 
   // ============ GALLERY PLACEHOLDERS ============
   (function(){
