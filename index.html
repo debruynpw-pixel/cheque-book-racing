@@ -12,6 +12,8 @@
   content="default-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self';" />
 <meta name="referrer" content="no-referrer" />
 
+<link rel="icon" type="image/jpeg" href="logo.jpg" />
+<link rel="apple-touch-icon" href="logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -85,6 +87,8 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s var(--
 .nav.scrolled .nav-in{background:rgba(10,12,18,.92);box-shadow:var(--shadow)}
 .brand{display:flex;align-items:center;gap:11px;min-width:0}
 .brand .badge{width:46px;height:46px;flex:none}
+.logo-img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;display:block;
+  transform:scale(1.07);box-shadow:0 0 0 1px rgba(212,168,56,.25)}
 .brand b{font-family:'Oswald',sans-serif;font-size:1.02rem;letter-spacing:.5px;line-height:1;white-space:nowrap}
 .brand b small{display:block;font-size:.56rem;letter-spacing:.3em;color:var(--gold);font-weight:600;margin-top:3px}
 .nav-links{display:flex;align-items:center;gap:6px}
@@ -98,6 +102,8 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s var(--
 .btn-gold:hover{transform:translateY(-2px)}
 .btn-ghost{border:1px solid var(--line);color:var(--text)}
 .btn-ghost:hover{border-color:var(--gold);background:rgba(212,168,56,.08)}
+.btn-wa{background:#25d366;color:#04210f;box-shadow:0 10px 26px -12px rgba(37,211,102,.6)}
+.btn-wa:hover{transform:translateY(-2px);background:#22c35d}
 .nav-toggle{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);align-items:center;justify-content:center}
 .nav-toggle span{display:block;width:20px;height:2px;background:var(--text);position:relative}
 .nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--text);transition:.3s}
@@ -120,7 +126,7 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s var(--
 .hero-stats .st small{color:var(--muted);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 .hero-art{position:relative;display:flex;align-items:center;justify-content:center}
-.hero-badge{width:min(100%,460px);filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+.hero-badge{display:block;width:min(80vw,440px);aspect-ratio:1;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
 
 /* ============ SECTION HEADER ============ */
 .sec-head{max-width:640px;margin:0 auto clamp(40px,6vw,68px);text-align:center}
@@ -168,10 +174,10 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s var(--
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;pointer-events:none}
 .opt label{display:flex;align-items:center;gap:10px;margin:0;padding:14px 14px;border-radius:12px;cursor:pointer;
-  border:1px solid var(--line);background:var(--bg);transition:.25s;font-family:'Inter';font-weight:500;font-size:.92rem}
+  border:1px solid var(--line);background:#1b2030;color:var(--text);transition:.25s;font-family:'Inter';font-weight:500;font-size:.92rem}
 .opt .dot{width:18px;height:18px;border-radius:6px;border:2px solid var(--navy-lt);flex:none;display:grid;place-items:center;transition:.25s}
 .opt .dot svg{width:11px;height:11px;opacity:0;transform:scale(.4);transition:.2s}
-.opt input:checked + label{border-color:var(--purple);background:rgba(200,206,218,.12)}
+.opt input:checked + label{border-color:var(--purple);background:#2b3344;color:#fff}
 .opt input:checked + label .dot{background:var(--purple);border-color:var(--purple)}
 .opt input:checked + label .dot svg{opacity:1;transform:scale(1)}
 .opt input:focus-visible + label{outline:2px solid var(--gold);outline-offset:2px}
@@ -325,7 +331,7 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
       <a href="#contact">Contact</a>
       <a class="btn btn-pri" href="#quote">Build My Quote</a>
     </nav>
-    <a class="btn btn-gold nav-cta-desktop" href="https://wa.me/27846092023" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="btn btn-wa nav-cta-desktop" href="https://wa.me/27846092023" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.512 5.26l-.999 3.648 3.876-1.017z"/></svg>WhatsApp</a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
@@ -462,7 +468,7 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
       </div>
 
       <p class="q-note">By sending, your request opens in WhatsApp to <b>+27 84 609 2023</b>. No payment — we reply with your quote.</p>
-      <button type="submit" class="btn btn-gold q-submit">
+      <button type="submit" class="btn btn-wa q-submit">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.512 5.26l-.999 3.648 3.876-1.017z"/></svg>
         Send Quote Request via WhatsApp
       </button>
@@ -649,7 +655,11 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
     s+='<line x1="-1" y1="-2" x2="-1" y2="16" stroke="#3a4256" stroke-width="1.5"/></g>';
     return s;
   }
-  ["navBadge","heroBadge","footBadge"].forEach(function(id){ var el=$(id); if(el) el.innerHTML = badgeSVG(); });
+  ["navBadge","heroBadge","footBadge"].forEach(function(id){
+    var el=$(id); if(!el) return;
+    var alt = "Cheque Book Racing logo";
+    el.innerHTML = '<img src="logo.jpg" alt="'+alt+'" class="logo-img" decoding="async">';
+  });
 
   // hero badge gentle float + ring spin accent
   (function(){
@@ -762,7 +772,7 @@ footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z
     box.innerHTML = SERVICES.map(function(s,i){
       var id = "svc_"+i;
       return '<div class="opt"><input type="checkbox" id="'+id+'" value="'+esc(s)+'">'
-        + '<label for="'+id+'"><span class="dot"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>'+esc(s)+'</label></div>';
+        + '<label for="'+id+'"><span class="dot"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16181d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>'+esc(s)+'</label></div>';
     }).join("");
 
     var form = $("quoteForm");
