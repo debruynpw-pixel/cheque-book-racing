@@ -2,953 +2,819 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#0d0f16" />
-<meta name="description" content="Cheque Book Racing — motorcycle servicing, maintenance, makeovers, custom wrapping & painting in Krugersdorp. Est. 2025." />
-<title>Cheque Book Racing | Moto Servicing, Wraps & Custom Paint — Krugersdorp</title>
-
-<!-- Content Security Policy: lock down what can load/run -->
-<meta http-equiv="Content-Security-Policy"
-  content="default-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self';" />
-<meta name="referrer" content="no-referrer" />
-
-<link rel="icon" type="image/jpeg" href="logo.jpg" />
-<link rel="apple-touch-icon" href="logo.jpg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cheque Book Racing — Bike Service, Respray, Tuning &amp; Custom Builds</title>
+<meta name="description" content="Cheque Book Racing — motorcycle service, fault finding, respray, custom paint & wraps, performance tuning and detailing. Get an instant quote straight to WhatsApp." />
+<link rel="icon" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ============ TOKENS ============ */
 :root{
-  --purple:#c2c7d0;        /* premium silver (was purple) */
-  --purple-lt:#eef1f5;     /* silver shine */
-  --purple-glow:rgba(200,206,218,.42);
-  --silver-dk:#8b919c;
-  --gold:#d4a838;
-  --gold-lt:#e8c45f;
-  --navy:#3a4256;
-  --navy-lt:#4d5872;
-  --bg:#0a0c12;
-  --bg-2:#11141d;
-  --bg-3:#171b26;
-  --line:rgba(212,168,56,.16);
-  --cream:#f4efe1;
-  --text:#e9e7e1;
-  --muted:#9aa0ad;
+  --purple-950:#120a20;
+  --purple-900:#1a0f2e;
+  --purple-800:#241540;
+  --purple-700:#341c5c;
+  --purple-600:#4a2a82;
+  --violet:#7b3fe4;
+  --violet-glow:#9d5cff;
+  --gold:#f4b724;
+  --gold-2:#e8a81c;
+  --gold-light:#ffd85c;
+  --ink:#0c0812;
+  --ink-2:#15101f;
+  --cream:#f5f2ec;
+  --white:#ffffff;
+  --muted:#b9a9d4;
+  --wa:#25d366;
   --radius:16px;
-  --radius-lg:24px;
   --maxw:1200px;
-  --ease:cubic-bezier(.16,1,.3,1);
-  --shadow:0 18px 50px -18px rgba(0,0,0,.8);
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
-
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
   font-family:'Inter',system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.65;
+  background:var(--purple-950);
+  color:var(--cream);
+  line-height:1.6;
   overflow-x:hidden;
-  max-width:100vw;
 }
-img{max-width:100%;display:block}
+h1,h2,h3,.display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.5px;line-height:.98;text-transform:uppercase}
+.techno{font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase}
 a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
-input,select,textarea{font-family:inherit;font-size:16px} /* 16px = no iOS zoom */
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
-::selection{background:var(--purple);color:#fff}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{position:relative}
 
-h1,h2,h3,.display{font-family:'Oswald',sans-serif;font-weight:700;line-height:1.05;letter-spacing:.5px}
-.eyebrow{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.32em;text-transform:uppercase;font-size:.74rem;color:var(--gold)}
+/* ---------- CHECKERED FLAG STRIP ---------- */
+.checker{
+  height:22px;
+  background:
+    repeating-conic-gradient(var(--white) 0 25%, transparent 0 50%) 0 0 / 22px 22px,
+    var(--purple-700);
+  opacity:.9;
+}
+.checker.gold{
+  background:
+    repeating-conic-gradient(var(--gold) 0 25%, var(--purple-900) 0 50%) 0 0 / 22px 22px;
+}
 
-.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,5vw,40px)}
-section{position:relative;padding:clamp(64px,10vw,120px) 0}
+/* ---------- NAV ---------- */
+header.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  background:linear-gradient(180deg,rgba(18,10,32,.92),rgba(18,10,32,.55) 70%,transparent);
+  backdrop-filter:blur(8px);
+  transition:padding .3s var(--ease),background .3s var(--ease);
+}
+header.nav.scrolled{padding:8px 24px;background:rgba(18,10,32,.96);border-bottom:1px solid rgba(123,63,228,.3)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{height:52px;width:52px;border-radius:50%;object-fit:cover;transform:scale(1.04);box-shadow:0 4px 16px rgba(0,0,0,.55);border:2px solid rgba(244,183,36,.55)}
+.brand-word{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.9;font-size:15px;letter-spacing:.5px;color:var(--white)}
+.brand-word b{color:var(--gold)}
+header.nav.scrolled .brand-logo{height:44px;width:44px}
+@media(max-width:600px){.brand-word{display:none}}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;font-size:14px;color:var(--cream);opacity:.85;transition:color .2s,opacity .2s;position:relative}
+.nav-links a:hover{opacity:1;color:var(--gold-light)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .25s var(--ease)}
+.nav-links a:hover::after{width:100%}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:none;
+  font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:15px;
+  padding:12px 22px;border-radius:10px;transition:transform .18s var(--ease),box-shadow .25s,filter .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#2a1500;box-shadow:0 8px 26px rgba(244,183,36,.35)}
+.btn-gold:hover{box-shadow:0 12px 34px rgba(244,183,36,.5)}
+.btn-wa{background:var(--wa);color:#053b1e;box-shadow:0 8px 26px rgba(37,211,102,.3)}
+.btn-ghost{background:transparent;border:2px solid rgba(157,92,255,.5);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-light)}
+.nav-cta{display:flex;gap:12px;align-items:center}
 
-/* gradient text */
-.grad{background:linear-gradient(100deg,var(--gold-lt),var(--gold) 40%,var(--purple-lt) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;min-height:100dvh;
+  display:flex;align-items:center;
+  padding:120px 0 60px;
+  background:
+    radial-gradient(1000px 700px at 78% 18%,rgba(123,63,228,.35),transparent 60%),
+    radial-gradient(700px 600px at 12% 88%,rgba(244,183,36,.14),transparent 60%),
+    linear-gradient(160deg,var(--purple-950),var(--ink) 55%,var(--purple-900));
+  overflow:hidden;
+}
+.hero-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:14px;color:var(--gold-light);margin-bottom:18px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+.hero h1{font-size:clamp(46px,8vw,110px);color:var(--white);text-shadow:0 6px 40px rgba(123,63,228,.4)}
+.hero h1 .g{color:transparent;-webkit-text-stroke:2px var(--gold)}
+.hero p.lead{max-width:520px;margin:22px 0 30px;font-size:18px;color:var(--muted)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+/* spec panel like MS-25 */
+.spec{
+  background:linear-gradient(180deg,rgba(21,16,31,.85),rgba(12,8,18,.9));
+  border:1px solid rgba(123,63,228,.35);
+  border-radius:var(--radius);
+  padding:6px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+.spec-inner{border:1px solid rgba(123,63,228,.2);border-radius:12px;overflow:hidden}
+.spec-photo{
+  position:relative;aspect-ratio:4/3;
+  background:
+    repeating-linear-gradient(115deg,rgba(123,63,228,.06) 0 2px,transparent 2px 22px),
+    radial-gradient(400px 300px at 60% 40%,rgba(123,63,228,.25),transparent),
+    linear-gradient(160deg,#181022,#0b0710);
+  display:flex;align-items:center;justify-content:center;
+}
+.spec-photo .badge-mark{width:58%;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6));opacity:.96;animation:float 6s ease-in-out infinite;border-radius:50%}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.spec-photo .slot-tag{position:absolute;left:12px;bottom:12px;font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1px;font-size:11px;color:var(--muted);background:rgba(0,0,0,.5);padding:4px 10px;border-radius:6px;border:1px solid rgba(157,92,255,.25)}
+.spec-rows{display:grid}
+.spec-row{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-top:1px solid rgba(123,63,228,.18)}
+.spec-row .val{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:24px;color:var(--white)}
+.spec-row .lab{font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:var(--gold-light)}
 
-/* ============ BACKDROP AMBIENT SVG ============ */
-.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.bg-fx .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:drift 22s var(--ease) infinite alternate}
-.blob.p{width:46vw;height:46vw;background:radial-gradient(circle,var(--purple-glow),transparent 70%);top:-10%;left:-12%}
-.blob.g{width:40vw;height:40vw;background:radial-gradient(circle,rgba(212,168,56,.22),transparent 70%);bottom:-15%;right:-10%;animation-delay:-7s}
-@keyframes drift{to{transform:translate(8%,6%) scale(1.15)}}
-.grid-lines{position:absolute;inset:0;opacity:.5}
+/* ---------- HERO (static image) ---------- */
+.hero-static{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:120px 0 70px;overflow:hidden;background:linear-gradient(160deg,var(--purple-950),var(--ink) 55%,var(--purple-900))}
+.hero-glow{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(1000px 700px at 78% 32%,rgba(123,63,228,.32),transparent 60%),
+  radial-gradient(700px 600px at 8% 86%,rgba(244,183,36,.12),transparent 60%)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:30px;align-items:center;width:100%}
+.hero-content{max-width:560px}
+.hero-content h1{font-size:clamp(44px,7vw,92px);color:var(--white);text-shadow:0 6px 40px rgba(123,63,228,.45);margin-bottom:4px}
+.hero-content h1 .g{color:transparent;-webkit-text-stroke:2px var(--gold)}
+.hero-content .lead{max-width:480px;margin:20px 0 28px;font-size:18px;color:var(--muted)}
+.hero-content .lead b{color:var(--gold-light);font-weight:700}
+.hero-media{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative}
+.hero-img{width:100%;max-width:430px;max-height:60vh;aspect-ratio:3/4;object-fit:cover;border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.6);border:1px solid rgba(123,63,228,.35);transition:opacity .25s var(--ease)}
+.hero-thumbs{display:flex;gap:10px;width:100%;max-width:430px}
+.hero-thumb{flex:1;background:rgba(123,63,228,.12);border:1.5px solid rgba(123,63,228,.35);border-radius:12px;padding:6px 6px 8px;cursor:pointer;transition:.2s var(--ease);display:flex;flex-direction:column;align-items:center;gap:5px}
+.hero-thumb img{width:100%;height:56px;object-fit:cover;border-radius:7px}
+.hero-thumb span{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:11px;color:var(--muted)}
+.hero-thumb:hover{border-color:var(--violet-glow);transform:translateY(-2px)}
+.hero-thumb.active{border-color:var(--gold);background:rgba(244,183,36,.15)}
+.hero-thumb.active span{color:var(--gold-light)}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:22px;text-align:center}
+  .hero-content{max-width:none;margin:0 auto;order:2}
+  .hero-content .lead{margin-left:auto;margin-right:auto}
+  .hero-cta{justify-content:center}
+  .hero-media{order:1}
+  .hero-img{width:86%;max-width:380px}
+}
 
-/* ============ NAV ============ */
-header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s var(--ease)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;
-  margin:14px auto;width:calc(100% - 28px);max-width:var(--maxw);
-  padding:10px 14px 10px 12px;border-radius:60px;
-  background:rgba(13,15,22,.55);backdrop-filter:blur(14px);
-  border:1px solid var(--line);transition:.4s var(--ease)}
-.nav.scrolled .nav-in{background:rgba(10,12,18,.92);box-shadow:var(--shadow)}
-.brand{display:flex;align-items:center;gap:11px;min-width:0}
-.brand .badge{width:46px;height:46px;flex:none}
-.logo-img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;display:block;
-  transform:scale(1.07);box-shadow:0 0 0 1px rgba(212,168,56,.25)}
-.brand b{font-family:'Oswald',sans-serif;font-size:1.02rem;letter-spacing:.5px;line-height:1;white-space:nowrap}
-.brand b small{display:block;font-size:.56rem;letter-spacing:.3em;color:var(--gold);font-weight:600;margin-top:3px}
-.nav-links{display:flex;align-items:center;gap:6px}
-.nav-links a{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:.96rem;letter-spacing:.04em;padding:9px 14px;border-radius:40px;color:var(--muted);transition:.25s}
-.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.05)}
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.04em;
-  padding:11px 20px;border-radius:40px;transition:.3s var(--ease);font-size:.95rem;white-space:nowrap}
-.btn-pri{background:linear-gradient(125deg,#8e94a0,#eef1f5 46%,#b4bac4);color:#16181d;box-shadow:0 10px 26px -10px var(--purple-glow)}
-.btn-pri:hover{transform:translateY(-2px);box-shadow:0 16px 34px -10px var(--purple-glow)}
-.btn-gold{background:linear-gradient(120deg,var(--gold),var(--gold-lt));color:#1a1304;box-shadow:0 10px 26px -12px rgba(212,168,56,.6)}
-.btn-gold:hover{transform:translateY(-2px)}
-.btn-ghost{border:1px solid var(--line);color:var(--text)}
-.btn-ghost:hover{border-color:var(--gold);background:rgba(212,168,56,.08)}
-.btn-wa{background:#25d366;color:#04210f;box-shadow:0 10px 26px -12px rgba(37,211,102,.6)}
-.btn-wa:hover{transform:translateY(-2px);background:#22c35d}
-.nav-toggle{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);align-items:center;justify-content:center}
-.nav-toggle span{display:block;width:20px;height:2px;background:var(--text);position:relative}
-.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--text);transition:.3s}
-.nav-toggle span::before{top:-6px}.nav-toggle span::after{top:6px}
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--gold);color:#241100;overflow:hidden;white-space:nowrap;padding:12px 0;border-top:3px solid var(--purple-900);border-bottom:3px solid var(--purple-900)}
+.marquee .track{display:inline-flex;gap:0;animation:scroll 26s linear infinite;font-family:'Anton',sans-serif;font-size:22px;letter-spacing:1px;text-transform:uppercase;will-change:transform}
+.marquee .track span{display:inline-flex;align-items:center;gap:22px;padding-right:22px}
+.marquee .star{color:var(--violet)}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
-/* ============ HERO ============ */
-.hero{min-height:100svh;display:flex;align-items:center;padding-top:120px;z-index:1;overflow:hidden}
-.hero-center{width:100%;max-width:880px;margin:0 auto;text-align:center;position:relative;z-index:2}
-.hero h1{font-size:clamp(2.8rem,11vw,6rem);text-transform:uppercase}
-.hero h1 .ln{display:block;overflow:hidden}
-.hero h1 .ln span{display:block;transform:translateY(110%);animation:rise .9s var(--ease) forwards}
-.hero h1 .ln:nth-child(2) span{animation-delay:.12s}
-.hero h1 .ln:nth-child(3) span{animation-delay:.24s}
-@keyframes rise{to{transform:translateY(0)}}
-.hero p.lead{margin:24px auto 32px;color:var(--muted);font-size:clamp(1rem,2.4vw,1.2rem);max-width:34em;
-  opacity:0;animation:fadeUp .8s .5s var(--ease) forwards}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;opacity:0;animation:fadeUp .8s .65s var(--ease) forwards}
-.hero-stats{display:flex;gap:clamp(24px,6vw,52px);margin-top:44px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .8s .8s var(--ease) forwards}
-.hero-stats .st b{font-family:'Oswald',sans-serif;font-size:clamp(1.7rem,5vw,2.1rem);color:var(--gold);display:block;line-height:1}
-.hero-stats .st small{color:var(--muted);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-/* checkered racing ribbon */
-.hero-ribbon{position:absolute;left:-6%;right:-6%;bottom:6%;height:clamp(44px,7vw,68px);z-index:1;
-  transform:rotate(-3.5deg);overflow:hidden;
-  border-top:2px solid rgba(212,168,56,.5);border-bottom:2px solid rgba(212,168,56,.5);
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
-  opacity:0;animation:fadeUp 1s 1s var(--ease) forwards}
-.hero-ribbon .checker{position:absolute;inset:0;width:200%;
-  background-image:conic-gradient(rgba(244,239,225,.16) 90deg,transparent 0 180deg,rgba(244,239,225,.16) 0 270deg,transparent 0);
-  background-size:34px 34px;animation:slide 6s linear infinite}
-@keyframes slide{to{transform:translateX(-34px)}}
+/* ---------- SECTION HEADS ---------- */
+.sec{padding:90px 0}
+.sec-head{margin-bottom:48px;max-width:720px}
+.sec-head .kick{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:4px;text-transform:uppercase;font-size:14px;color:var(--gold);display:flex;align-items:center;gap:12px}
+.sec-head .kick::before{content:"";width:40px;height:2px;background:var(--gold)}
+.sec-head h2{font-size:clamp(34px,5vw,60px);color:var(--white);margin-top:14px}
+.sec-head h2 .v{color:var(--violet-glow)}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:17px}
 
-/* ============ SECTION HEADER ============ */
-.sec-head{max-width:640px;margin:0 auto clamp(40px,6vw,68px);text-align:center}
-.sec-head h2{font-size:clamp(2rem,5.5vw,3.4rem);text-transform:uppercase;margin:14px 0}
-.sec-head p{color:var(--muted)}
+/* ---------- SERVICES GRID ---------- */
+#services{background:linear-gradient(180deg,var(--purple-950),var(--purple-900))}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{
+  background:linear-gradient(180deg,rgba(36,21,64,.6),rgba(12,8,18,.6));
+  border:1px solid rgba(123,63,228,.28);
+  border-radius:var(--radius);padding:26px;position:relative;overflow:hidden;
+  transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;
+}
+.svc::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--violet),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.svc:hover{transform:translateY(-8px);border-color:rgba(244,183,36,.6);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.svc:hover::before{transform:scaleX(1)}
+.svc .ico{width:54px;height:54px;border-radius:12px;background:rgba(123,63,228,.16);display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:1px solid rgba(157,92,255,.3)}
+.svc .ico svg{width:28px;height:28px;stroke:var(--gold-light);fill:none;stroke-width:1.7}
+.svc h3{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:22px;letter-spacing:.5px;color:var(--white);text-transform:uppercase;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:15px}
+
+/* ---------- BEFORE / AFTER ---------- */
+#work{background:linear-gradient(180deg,var(--purple-900),var(--purple-950))}
+.ba-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.ba{
+  border-radius:var(--radius);overflow:hidden;border:1px solid rgba(123,63,228,.3);
+  background:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.5)
+}
+.ba-slider{position:relative;aspect-ratio:16/11;user-select:none;touch-action:none;cursor:ew-resize;overflow:hidden}
+.ba-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:34px;letter-spacing:2px}
+.ba-before{background:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 10px,transparent 10px 20px),
+    linear-gradient(135deg,#2b2b30,#1a1a1e);color:#7a7a82}
+.ba-after{background:
+    radial-gradient(400px 300px at 50% 40%,rgba(123,63,228,.4),transparent),
+    linear-gradient(135deg,var(--purple-700),var(--purple-950));color:var(--gold-light);clip-path:inset(0 0 0 50%)}
+.ba-layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba-tag{position:absolute;top:12px;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:2px;font-size:12px;padding:4px 12px;border-radius:6px;z-index:2}
+.ba-tag.b{left:12px;background:rgba(0,0,0,.6);color:#c9c9d0}
+.ba-tag.a{right:12px;background:var(--gold);color:#241100}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--gold);box-shadow:0 0 16px var(--gold);transform:translateX(-50%);z-index:3}
+.ba-handle::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--gold);border:3px solid var(--purple-900);box-shadow:0 0 20px rgba(244,183,36,.6);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23241100'%3E%3Cpath d='M8 5l-5 7 5 7V5zm8 0v14l5-7-5-7z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:22px}
+.ba-cap{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.ba-cap h4{font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:17px;color:var(--white)}
+.ba-cap span{font-size:13px;color:var(--gold-light);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1px}
+.work-note{margin-top:26px;text-align:center;color:var(--muted);font-size:14px}
+
+/* ---------- QUOTE FLOW ---------- */
+#quote{background:
+  radial-gradient(700px 500px at 85% 10%,rgba(123,63,228,.25),transparent),
+  linear-gradient(180deg,var(--purple-950),var(--ink))}
+.quote-card{
+  max-width:820px;margin:0 auto;background:linear-gradient(180deg,rgba(26,15,46,.9),rgba(12,8,18,.95));
+  border:1px solid rgba(123,63,228,.4);border-radius:22px;padding:8px;box-shadow:0 40px 100px rgba(0,0,0,.6)
+}
+.quote-inner{border:1px solid rgba(123,63,228,.22);border-radius:16px;padding:34px}
+.q-progress{display:flex;gap:8px;margin-bottom:28px}
+.q-progress .bar{height:5px;flex:1;background:rgba(123,63,228,.25);border-radius:3px;overflow:hidden}
+.q-progress .bar .fill{height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--gold));transition:width .4s var(--ease)}
+.q-progress .bar.done .fill{width:100%}
+.q-step{display:none}
+.q-step.active{display:block;animation:fade .4s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.q-step h3{font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:24px;color:var(--white);margin-bottom:6px}
+.q-step .sub{color:var(--muted);font-size:15px;margin-bottom:22px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.cat{
+  background:rgba(123,63,228,.1);border:1.5px solid rgba(123,63,228,.35);border-radius:14px;
+  padding:22px 16px;cursor:pointer;text-align:center;transition:.22s var(--ease)
+}
+.cat:hover,.cat.sel{border-color:var(--gold);background:rgba(244,183,36,.12);transform:translateY(-4px)}
+.cat svg{width:34px;height:34px;stroke:var(--gold-light);fill:none;stroke-width:1.6;margin-bottom:10px}
+.cat .t{font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:16px;color:var(--white)}
+.q-field{margin-bottom:20px}
+.q-field label{display:block;font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:13px;color:var(--gold-light);margin-bottom:9px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  background:rgba(123,63,228,.12);border:1.5px solid rgba(123,63,228,.35);border-radius:30px;
+  padding:9px 18px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.5px;font-size:15px;color:var(--cream);transition:.18s
+}
+.chip:hover{border-color:var(--violet-glow)}
+.chip.sel{background:var(--gold);border-color:var(--gold);color:#241100}
+.q-input,.q-textarea{
+  width:100%;background:rgba(12,8,18,.7);border:1.5px solid rgba(123,63,228,.35);border-radius:12px;
+  padding:14px 16px;color:var(--cream);font-family:'Inter',sans-serif;font-size:16px;transition:.2s
+}
+.q-input:focus,.q-textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(244,183,36,.15)}
+.q-textarea{min-height:100px;resize:vertical}
+.q-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.q-nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+.q-review{background:rgba(12,8,18,.6);border:1px dashed rgba(157,92,255,.4);border-radius:14px;padding:20px;margin-bottom:8px}
+.q-review .line{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid rgba(123,63,228,.15);font-size:15px}
+.q-review .line:last-child{border-bottom:none}
+.q-review .line .k{color:var(--gold-light);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:12px}
+.q-review .line .v{color:var(--white);text-align:right}
+.wa-note{text-align:center;color:var(--muted);font-size:13px;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px}
+/* calendar */
+.cal{background:rgba(12,8,18,.7);border:1.5px solid rgba(123,63,228,.35);border-radius:12px;padding:16px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-head span{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--white);font-size:17px}
+.cal-nav{width:34px;height:34px;border-radius:8px;border:1px solid rgba(123,63,228,.4);background:rgba(123,63,228,.15);color:var(--gold-light);font-size:20px;cursor:pointer;line-height:1;transition:.18s;display:flex;align-items:center;justify-content:center}
+.cal-nav:hover{background:var(--gold);color:#241100;border-color:var(--gold)}
+.cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:6px}
+.cal-dow span{text-align:center;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:1px;color:var(--muted)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:15px;color:var(--cream);cursor:pointer;transition:.15s;border:1px solid transparent}
+.cal-day:hover{background:rgba(123,63,228,.25);border-color:var(--violet-glow)}
+.cal-day.muted{pointer-events:none;background:transparent}
+.cal-day.past{color:rgba(185,169,212,.25);cursor:not-allowed;pointer-events:none;text-decoration:line-through}
+.cal-day.today{border-color:var(--violet-glow)}
+.cal-day.sel{background:var(--gold);color:#241100;border-color:var(--gold);box-shadow:0 4px 14px rgba(244,183,36,.4)}
+.cal-sel{margin-top:12px;text-align:center;font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.5px;font-size:14px;color:var(--gold-light)}
+.cal.mini{max-width:330px;margin-top:14px;padding:14px;animation:fade .3s var(--ease)}
+.cal.mini .cal-head span{font-size:15px}
+.cal.mini .cal-nav{width:30px;height:30px;font-size:18px}
+.cal.mini .cal-day{aspect-ratio:auto;height:34px;font-size:14px;border-radius:7px}
+.cal.mini .cal-dow span{font-size:11px}
+.cal.mini .cal-sel{margin-top:10px;font-size:13px}
+
+/* ---------- MERCH ---------- */
+#merch{background:linear-gradient(180deg,var(--ink),var(--purple-900))}
+.merch-band{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;background:linear-gradient(135deg,rgba(74,42,130,.5),rgba(12,8,18,.6));border:1px solid rgba(123,63,228,.3);border-radius:22px;padding:44px;overflow:hidden;position:relative}
+.merch-band h2{font-size:clamp(30px,4.4vw,52px);color:var(--white)}
+.merch-band h2 .g{color:var(--gold)}
+.merch-band p{color:var(--muted);margin:16px 0 24px;max-width:420px}
+.merch-band .kick{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:4px;text-transform:uppercase;font-size:14px;color:var(--gold);display:block;margin-bottom:14px}
+.merch-visual{aspect-ratio:1;border-radius:16px;background:
+  repeating-conic-gradient(var(--gold) 0 25%,var(--purple-800) 0 50%) 0 0/34px 34px;
+  display:flex;align-items:center;justify-content:center;border:1px solid rgba(244,183,36,.3)}
+.merch-visual img{width:60%;filter:drop-shadow(0 16px 30px rgba(0,0,0,.6));border-radius:50%}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);padding:70px 0 30px;border-top:1px solid rgba(123,63,228,.3)}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-brand img{height:70px;border-radius:12px;margin-bottom:16px}
+.foot-brand p{color:var(--muted);font-size:15px;max-width:320px}
+.foot-col h4{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-size:15px;margin-bottom:16px}
+.foot-col a,.foot-col p{display:block;color:var(--muted);font-size:15px;margin-bottom:10px;transition:color .2s}
+.foot-col a:hover{color:var(--gold-light)}
+.foot-contact a{display:flex;align-items:center;gap:10px}
+.foot-contact svg{width:18px;height:18px;stroke:var(--gold-light);fill:none;stroke-width:1.7;flex-shrink:0}
+.foot-bottom{border-top:1px solid rgba(123,63,228,.2);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:13px}
+
+/* floating whatsapp */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:90;width:60px;height:60px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.5);animation:bob 2.4s ease-in-out infinite;transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:32px;height:32px;fill:#fff}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:.9s var(--ease)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-.reveal[data-d="1"]{transition-delay:.1s}
-.reveal[data-d="2"]{transition-delay:.2s}
-.reveal[data-d="3"]{transition-delay:.3s}
-.reveal[data-d="4"]{transition-delay:.4s}
 
-/* ============ SERVICES ============ */
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.svc{position:relative;padding:30px 26px;border-radius:var(--radius-lg);background:linear-gradient(160deg,var(--bg-2),var(--bg-3));
-  border:1px solid var(--line);overflow:hidden;transition:.45s var(--ease)}
-.svc::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(200,206,218,.16),transparent 60%);opacity:0;transition:.4s}
-.svc:hover{transform:translateY(-6px);border-color:rgba(212,168,56,.5);box-shadow:var(--shadow)}
-.svc:hover::before{opacity:1}
-.svc .ic{width:60px;height:60px;margin-bottom:18px}
-.svc h3{font-size:1.32rem;text-transform:uppercase;margin-bottom:8px}
-.svc p{color:var(--muted);font-size:.95rem}
-.svc .tag{position:absolute;top:18px;right:18px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;color:var(--gold);opacity:.6}
+/* spinning gear */
+.spin{transform-box:fill-box;transform-origin:center;animation:rot 22s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
 
-/* ============ GALLERY ============ */
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.gal figure{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line);background:var(--bg-3)}
-.gal figure svg{width:100%;height:100%}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 14px 12px;
-  background:linear-gradient(transparent,rgba(0,0,0,.85));font-family:'Rajdhani',sans-serif;font-weight:600;
-  display:flex;justify-content:space-between;align-items:center;font-size:.9rem}
-.gal figcaption span{font-size:.66rem;letter-spacing:.18em;color:var(--gold)}
-.gal figure::after{content:"PLACEHOLDER";position:absolute;top:12px;left:12px;font-family:'Rajdhani';font-weight:700;
-  font-size:.6rem;letter-spacing:.2em;color:var(--muted);background:rgba(0,0,0,.4);padding:4px 8px;border-radius:6px}
-
-/* ============ QUOTE BUILDER ============ */
-.quote-card{max-width:780px;margin:0 auto;background:linear-gradient(160deg,var(--bg-2),var(--bg-3));
-  border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,5vw,46px);box-shadow:var(--shadow)}
-.field{margin-bottom:22px}
-.field label{display:block;font-family:'Rajdhani',sans-serif;font-weight:600;margin-bottom:9px;letter-spacing:.04em}
-.field label .req{color:var(--purple-lt)}
-.opt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;pointer-events:none}
-.opt label{display:flex;align-items:center;gap:10px;margin:0;padding:14px 14px;border-radius:12px;cursor:pointer;
-  border:1px solid var(--line);background:#1b2030;color:var(--text);transition:.25s;font-family:'Inter';font-weight:500;font-size:.92rem}
-.opt .dot{width:18px;height:18px;border-radius:6px;border:2px solid var(--navy-lt);flex:none;display:grid;place-items:center;transition:.25s}
-.opt .dot svg{width:11px;height:11px;opacity:0;transform:scale(.4);transition:.2s}
-.opt input:checked + label{border-color:var(--purple);background:#2b3344;color:#fff}
-.opt input:checked + label .dot{background:var(--purple);border-color:var(--purple)}
-.opt input:checked + label .dot svg{opacity:1;transform:scale(1)}
-.opt input:focus-visible + label{outline:2px solid var(--gold);outline-offset:2px}
-.inp{width:100%;padding:13px 15px;border-radius:12px;background:var(--bg);border:1px solid var(--line);color:var(--text);transition:.25s}
-.inp:focus{border-color:var(--purple);background:#0c0e15}
-textarea.inp{resize:vertical;min-height:90px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.q-note{font-size:.84rem;color:var(--muted);margin-top:-6px;margin-bottom:20px}
-.q-submit{width:100%;justify-content:center;padding:16px;font-size:1.05rem}
-.err{color:#ff6b6b;font-size:.82rem;margin-top:6px;display:none}
-.field.invalid .err{display:block}
-.field.invalid .inp{border-color:#ff6b6b}
-
-/* ============ ABOUT ============ */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);align-items:center}
-.about-grid h2{font-size:clamp(1.9rem,5vw,3rem);text-transform:uppercase;margin-bottom:18px}
-.about-grid p{color:var(--muted);margin-bottom:14px}
-.feat{display:flex;gap:13px;margin-bottom:14px;align-items:flex-start}
-.feat .fi{width:26px;height:26px;flex:none;color:var(--gold);margin-top:2px}
-.about-art{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;background:radial-gradient(circle at 50% 30%,rgba(200,206,218,.2),var(--bg-2))}
-
-/* ============ CONTACT ============ */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.c-card{background:linear-gradient(160deg,var(--bg-2),var(--bg-3));border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px}
-.c-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.05)}
-.c-row:last-child{border:0}
-.c-row .ci{width:44px;height:44px;border-radius:12px;background:rgba(200,206,218,.14);display:grid;place-items:center;color:var(--gold);flex:none}
-.c-row small{display:block;color:var(--muted);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase}
-.c-row b{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:1.05rem}
-.socials{display:flex;gap:12px;margin-top:22px}
-.socials a{width:48px;height:48px;border-radius:14px;border:1px solid var(--line);display:grid;place-items:center;transition:.3s var(--ease)}
-.socials a:hover{transform:translateY(-3px);border-color:var(--gold);background:rgba(212,168,56,.1)}
-
-/* ============ FOOTER ============ */
-footer{padding:50px 0 110px;border-top:1px solid var(--line);position:relative;z-index:1}
-.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
-.foot-grid small{color:var(--muted);font-size:.82rem}
-.admin-link{font-size:.7rem;color:var(--navy-lt);letter-spacing:.1em}
-.admin-link:hover{color:var(--gold)}
-
-/* ============ WHATSAPP FLOAT ============ */
-.wa-float{position:fixed;right:18px;bottom:18px;z-index:90;width:60px;height:60px;border-radius:50%;
-  background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);
-  animation:wapulse 2.6s infinite}
-.wa-float svg{width:32px;height:32px}
-.wa-float::after{content:"Chat with us";position:absolute;right:72px;white-space:nowrap;background:#0d0f16;
-  color:#fff;padding:8px 13px;border-radius:10px;font-family:'Rajdhani';font-weight:600;font-size:.85rem;
-  border:1px solid var(--line);opacity:0;transform:translateX(8px);transition:.3s;pointer-events:none}
-.wa-float:hover::after{opacity:1;transform:none}
-@keyframes wapulse{0%,100%{box-shadow:0 12px 30px -8px rgba(37,211,102,.6)}50%{box-shadow:0 12px 40px -4px rgba(37,211,102,.9)}}
-
-/* ============ ADMIN MODAL ============ */
-.modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;
-  padding:24px 16px;background:rgba(5,6,10,.82);backdrop-filter:blur(8px);overflow-y:auto}
-.modal.open{display:flex}
-.modal-box{width:100%;max-width:960px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-lg);
-  margin:auto;box-shadow:var(--shadow);animation:pop .4s var(--ease)}
-@keyframes pop{from{opacity:0;transform:scale(.96) translateY(20px)}to{opacity:1;transform:none}}
-.modal-head{display:flex;justify-content:space-between;align-items:center;padding:22px 26px;border-bottom:1px solid var(--line)}
-.modal-head h3{font-size:1.3rem;text-transform:uppercase}
-.modal-x{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);font-size:1.3rem;line-height:1}
-.modal-body{padding:26px}
-.login-box{max-width:340px;margin:10px auto 20px}
-.lead-tbl{width:100%;border-collapse:collapse;font-size:.88rem}
-.lead-tbl th{text-align:left;font-family:'Rajdhani';letter-spacing:.08em;color:var(--gold);font-size:.74rem;text-transform:uppercase;padding:10px;border-bottom:1px solid var(--line)}
-.lead-tbl td{padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top}
-.lead-tbl tr:hover td{background:rgba(255,255,255,.02)}
-.pill{display:inline-block;padding:3px 10px;border-radius:30px;font-size:.7rem;font-family:'Rajdhani';font-weight:700;letter-spacing:.05em}
-.pill.new{background:rgba(200,206,218,.2);color:var(--purple-lt)}
-.pill.contacted{background:rgba(212,168,56,.18);color:var(--gold-lt)}
-.pill.done{background:rgba(37,211,102,.16);color:#3ddc84}
-.admin-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
-.admin-bar input{flex:1;min-width:160px}
-.mini{padding:7px 13px;font-size:.82rem;border-radius:10px}
-.empty{text-align:center;padding:50px 20px;color:var(--muted)}
-.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.st-sel{padding:5px 8px;border-radius:8px;background:var(--bg);border:1px solid var(--line);color:var(--text);font-size:.8rem}
-
-/* ============ TOAST ============ */
-.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,40px);z-index:300;
-  background:var(--bg-3);border:1px solid var(--gold);color:var(--text);padding:14px 22px;border-radius:14px;
-  font-family:'Rajdhani';font-weight:600;box-shadow:var(--shadow);opacity:0;transition:.4s var(--ease);pointer-events:none;max-width:90vw;text-align:center}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-
-/* ============ RESPONSIVE ============ */
-@media(max-width:880px){
-  .about-grid,.contact-grid{grid-template-columns:1fr}
-  /* drop backdrop-filter so the pill is NOT a containing block for the fixed menu panel */
-  .nav-in{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(10,12,18,.92)}
-  .nav.scrolled .nav-in{background:rgba(10,12,18,.96)}
-  .nav-links{position:fixed;inset:0 0 0 auto;width:min(82vw,320px);height:100svh;flex-direction:column;align-items:stretch;
-    justify-content:flex-start;gap:6px;padding:90px 22px 30px;background:#0c0e16;
-    border-left:1px solid var(--line);box-shadow:-20px 0 50px rgba(0,0,0,.6);
-    transform:translateX(100%);transition:.4s var(--ease);z-index:99;overflow-y:auto}
-  .nav-links.open{transform:none}
-  .nav-links a{padding:14px 16px;font-size:1.05rem}
-  .nav-links .btn{margin-top:10px;justify-content:center}
-  .nav-toggle{display:flex;position:relative;z-index:130}
-  .nav-cta-desktop{display:none}
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:34px}
+  .spec{max-width:440px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .ba-grid{grid-template-columns:1fr}
+  .merch-band{grid-template-columns:1fr;text-align:center}
+  .merch-band p{margin-left:auto;margin-right:auto}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
 }
-/* hamburger -> X */
-.nav-toggle.open span{background:transparent}
-.nav-toggle.open span::before{top:0;transform:rotate(45deg)}
-.nav-toggle.open span::after{top:0;transform:rotate(-45deg)}
-/* menu backdrop */
-.nav-scrim{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.55);opacity:0;visibility:hidden;transition:.3s var(--ease)}
-.nav-scrim.show{opacity:1;visibility:visible}
-@media(min-width:881px){.nav-scrim{display:none}}
-@media(max-width:520px){
-  .two{grid-template-columns:1fr}
-  .hero-stats{gap:20px}
-  .brand b{font-size:.92rem}
-  .wa-float{width:54px;height:54px}
+@media(max-width:600px){
+  .nav-cta .btn span{display:none}
+  .svc-grid{grid-template-columns:1fr}
+  .q-two{grid-template-columns:1fr}
+  .quote-inner{padding:22px}
+  .foot-grid{grid-template-columns:1fr}
+  .hero p.lead{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){
-  *{animation-duration:.001s!important;transition-duration:.001s!important}
+  *{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
-<!-- ===== AMBIENT BACKDROP ===== -->
-<div class="bg-fx" aria-hidden="true">
-  <div class="blob p"></div>
-  <div class="blob g"></div>
-  <svg class="grid-lines" preserveAspectRatio="none" viewBox="0 0 100 100">
-    <defs>
-      <pattern id="gp" width="8" height="8" patternUnits="userSpaceOnUse">
-        <path d="M8 0H0V8" fill="none" stroke="rgba(212,168,56,.05)" stroke-width=".2"/>
-      </pattern>
-    </defs>
-    <rect width="100" height="100" fill="url(#gp)"/>
-  </svg>
-  <!-- moving speed lines -->
-  <svg style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="none" viewBox="0 0 1440 900" aria-hidden="true">
-    <g stroke="url(#sl)" stroke-width="2" opacity=".5">
-      <line class="speed" x1="-200" y1="180" x2="0" y2="180"/>
-      <line class="speed" x1="-200" y1="420" x2="0" y2="420" style="animation-delay:1.2s"/>
-      <line class="speed" x1="-200" y1="660" x2="0" y2="660" style="animation-delay:2.1s"/>
-    </g>
-    <linearGradient id="sl" x1="0" x2="1"><stop offset="0" stop-color="transparent"/><stop offset="1" stop-color="var(--gold)"/></linearGradient>
-  </svg>
-</div>
-<style>
-.speed{animation:zoom 4s linear infinite}
-@keyframes zoom{0%{transform:translateX(0);opacity:0}10%{opacity:.6}100%{transform:translateX(1700px);opacity:0}}
-</style>
-
-<!-- ===== NAV ===== -->
+<!-- ================= NAV ================= -->
 <header class="nav" id="nav">
-  <div class="nav-in">
-    <a href="#top" class="brand" aria-label="Cheque Book Racing home">
-      <span class="badge" id="navBadge"></span>
-      <b>CHEQUE BOOK<small>RACING · EST 2025</small></b>
+  <a class="brand" href="#top">
+    <img class="brand-logo" src="logo.jpg" alt="Cheque Book Racing" />
+    <span class="brand-word">Cheque Book<br><b>Racing</b></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#quote">Get a Quote</a>
+    <a href="#merch">Merch</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-cta">
+    <a href="#quote" class="btn btn-gold"><span>Get a Quote</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#241100" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#quote">Get Quote</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a class="btn btn-pri" href="#quote">Build My Quote</a>
-    </nav>
-    <a class="btn btn-wa nav-cta-desktop" href="https://wa.me/27846092023" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.512 5.26l-.999 3.648 3.876-1.017z"/></svg>WhatsApp</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
-<div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
 
-<main id="top">
-
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="wrap hero-center">
-    <p class="eyebrow" style="opacity:0;animation:fadeUp .8s .35s var(--ease) forwards">Krugersdorp · Motorcycle Specialists</p>
-    <h1>
-      <span class="ln"><span>Serviced.</span></span>
-      <span class="ln"><span class="grad">Styled.</span></span>
-      <span class="ln"><span>Unleashed.</span></span>
-    </h1>
-    <p class="lead">Full motorcycle servicing, maintenance, custom makeovers, vinyl wrapping &amp; premium paint. We build bikes that turn heads — and run like they mean it.</p>
-    <div class="hero-cta">
-      <a class="btn btn-pri" href="#quote">Build My Quote →</a>
-      <a class="btn btn-ghost" href="#gallery">See The Builds</a>
+<!-- ================= HERO (static image) ================= -->
+<section class="hero-static" id="top">
+  <div class="hero-glow"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-content reveal">
+      <span class="eyebrow"><span class="dot"></span>Krugersdorp • Est. 2025 • Race-Bred Workshop</span>
+      <h1>Ride<br>Faster.<br><span class="g">Look Meaner.</span></h1>
+      <p class="lead">Service, respray, custom paint &amp; wraps, performance tuning and full custom builds — done right, done with pride. Tell us what your bike needs and get a quote straight to WhatsApp.</p>
+      <div class="hero-cta">
+        <a href="#quote" class="btn btn-gold">Build My Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#241100" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#work" class="btn btn-ghost">See Our Work</a>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="st"><b>5★</b><small>Workmanship</small></div>
-      <div class="st"><b>100%</b><small>Custom</small></div>
-      <div class="st"><b>2025</b><small>Established</small></div>
+    <div class="hero-media reveal">
+      <img class="hero-img" id="heroImg" src="flagship-left-gold.png" alt="Custom purple and gold Cheque Book Racing BMW S1000RR" />
+      <div class="hero-thumbs">
+        <button type="button" class="hero-thumb active" onclick="setHero(this,'flagship-left-gold.png')"><img src="flagship-left-gold.png" alt="Left side"><span>Left</span></button>
+        <button type="button" class="hero-thumb" onclick="setHero(this,'flagship-front.png')"><img src="flagship-front.png" alt="Front"><span>Front</span></button>
+        <button type="button" class="hero-thumb" onclick="setHero(this,'flagship-right-gold.png')"><img src="flagship-right-gold.png" alt="Right side"><span>Right</span></button>
+      </div>
     </div>
   </div>
-  <!-- animated checkered racing ribbon -->
-  <div class="hero-ribbon" aria-hidden="true"><div class="checker"></div></div>
 </section>
 
-<!-- ===== SERVICES ===== -->
-<section id="services">
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Performance Upgrades <b class="star">✦</b> Custom Paint <b class="star">✦</b> Respray <b class="star">✦</b> Wrapping <b class="star">✦</b> Tuning <b class="star">✦</b> Detailing <b class="star">✦</b> Custom Builds <b class="star">✦</b></span>
+    <span>Performance Upgrades <b class="star">✦</b> Custom Paint <b class="star">✦</b> Respray <b class="star">✦</b> Wrapping <b class="star">✦</b> Tuning <b class="star">✦</b> Detailing <b class="star">✦</b> Custom Builds <b class="star">✦</b></span>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section class="sec" id="services">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">What We Do</p>
-      <h2>Services Built <span class="grad">For The Ride</span></h2>
-      <p>From routine servicing to a full ground-up custom transformation — pick what your machine needs.</p>
+      <span class="kick">What We Do</span>
+      <h2>Everything Your <span class="v">Bike</span> Needs</h2>
+      <p>From a quick service to a full ground-up custom build — one workshop, all the work.</p>
     </div>
-    <div class="svc-grid">
-      <article class="svc reveal" data-d="1" data-tilt>
-        <span class="tag">01</span>
-        <svg class="ic" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="9" stroke="var(--gold)" stroke-width="2.5"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4" stroke="var(--purple-lt)" stroke-width="2.5" stroke-linecap="round"/></svg>
-        <h3>Servicing</h3>
-        <p>Full mechanical service — oil, filters, fluids, brakes, chain &amp; safety check. Keep her running sweet.</p>
-      </article>
-      <article class="svc reveal" data-d="2" data-tilt>
-        <span class="tag">02</span>
-        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M14 30l-6 8 4 4 8-6M30 18l8-8-4-4-8 6" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 28l-8-8a6 6 0 018-8l8 8 8 8a6 6 0 01-8 8z" stroke="var(--purple-lt)" stroke-width="2.5" stroke-linejoin="round"/></svg>
-        <h3>Maintenance</h3>
-        <p>Diagnostics, tune-ups, repairs &amp; part replacement. Catch problems before they catch you.</p>
-      </article>
-      <article class="svc reveal" data-d="3" data-tilt>
-        <span class="tag">03</span>
-        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M8 36c4-16 16-24 32-28-2 14-10 28-28 32-2-1-3-2-4-4z" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="30" cy="18" r="3.5" stroke="var(--purple-lt)" stroke-width="2.5"/></svg>
-        <h3>Makeovers</h3>
-        <p>Complete restyle &amp; transformation. Tired bike in, head-turner out. Your vision, our build.</p>
-      </article>
-      <article class="svc reveal" data-d="4" data-tilt>
-        <span class="tag">04</span>
-        <svg class="ic" viewBox="0 0 48 48" fill="none"><rect x="8" y="12" width="32" height="24" rx="3" stroke="var(--gold)" stroke-width="2.5"/><path d="M8 20l32-6M8 28l32-6" stroke="var(--purple-lt)" stroke-width="2.5"/></svg>
-        <h3>Wrapping</h3>
-        <p>Premium vinyl wraps — gloss, matte, chrome &amp; custom graphics. Switch the look, protect the paint.</p>
-      </article>
-      <article class="svc reveal" data-d="1" data-tilt>
-        <span class="tag">05</span>
-        <svg class="ic" viewBox="0 0 48 48" fill="none"><path d="M30 8l10 10-18 18-10 2 2-10z" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round"/><path d="M26 12l10 10" stroke="var(--purple-lt)" stroke-width="2.5"/><path d="M10 40h12" stroke="var(--purple-lt)" stroke-width="2.5" stroke-linecap="round"/></svg>
-        <h3>Custom Paint</h3>
-        <p>Show-quality spray work, candy coats, fades &amp; airbrush detail. Colour that hits different.</p>
-      </article>
-      <article class="svc reveal" data-d="2" style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(150deg,#2b313e,#171b26);border:1px solid var(--purple)">
-        <h3 style="margin-bottom:10px">Not sure what you need?</h3>
-        <p style="color:rgba(255,255,255,.85);margin-bottom:18px">Pick your options and message us — we'll come back with a quote.</p>
-        <a class="btn btn-gold" href="#quote" style="align-self:flex-start">Build My Quote →</a>
-      </article>
-    </div>
+    <div class="svc-grid" id="svcGrid"></div>
   </div>
 </section>
 
-<!-- ===== GALLERY ===== -->
-<section id="gallery">
+<!-- ================= BEFORE / AFTER ================= -->
+<section class="sec" id="work">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">The Work</p>
-      <h2>Recent <span class="grad">Builds &amp; Wraps</span></h2>
-      <p>Swap these for real photos anytime — drop your shots in and they slot straight in.</p>
+      <span class="kick">Proof In The Paint</span>
+      <h2>Before <span class="v">&amp;</span> After</h2>
+      <p>Drag the slider to see the transformation. Real respray, wrap and rebuild work from the Cheque Book Racing floor.</p>
     </div>
-    <div class="gal" id="galGrid"></div>
+    <div class="ba-grid" id="baGrid"></div>
+    <p class="work-note reveal">More builds on the way — bike photos get added as jobs roll out. Want your bike featured? Book it in.</p>
   </div>
 </section>
 
-<!-- ===== QUOTE BUILDER ===== -->
-<section id="quote">
+<!-- ================= QUOTE FLOW ================= -->
+<section class="sec" id="quote">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Get A Quote</p>
-      <h2>Build Your <span class="grad">Quote Request</span></h2>
-      <p>Pick what you want done, add your bike details, and send it straight to our WhatsApp. We'll reply with a price.</p>
+    <div class="sec-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
+      <span class="kick" style="justify-content:center">Instant Quote</span>
+      <h2>Tell Us What You <span class="v">Need</span></h2>
+      <p style="margin-left:auto;margin-right:auto">Answer a few quick questions. When you're done it goes straight to Billy on WhatsApp with your details — he'll come back with a price.</p>
     </div>
 
-    <form class="quote-card reveal" id="quoteForm" novalidate>
-      <div class="field">
-        <label>Which services do you want? <span class="req">*</span></label>
-        <div class="opt-grid" id="svcOpts">
-          <!-- options injected -->
+    <div class="quote-card reveal">
+      <div class="quote-inner">
+        <div class="q-progress">
+          <div class="bar done" id="pb0"><div class="fill"></div></div>
+          <div class="bar" id="pb1"><div class="fill"></div></div>
+          <div class="bar" id="pb2"><div class="fill"></div></div>
         </div>
-        <div class="err" id="svcErr">Pick at least one service.</div>
-      </div>
 
-      <div class="field">
-        <label for="bike">Bike make &amp; model <span class="req">*</span></label>
-        <input class="inp" id="bike" name="bike" placeholder="e.g. Yamaha R6 / KTM 390" required />
-        <div class="err">Tell us your bike.</div>
-      </div>
-
-      <div class="two">
-        <div class="field">
-          <label for="fname">Your name <span class="req">*</span></label>
-          <input class="inp" id="fname" name="fname" placeholder="Full name" required />
-          <div class="err">Name needed.</div>
+        <div class="q-step active" data-step="0">
+          <h3>What are you looking for?</h3>
+          <p class="sub">Pick the option that fits best — we'll ask the right questions next.</p>
+          <div class="cat-grid" id="catGrid"></div>
         </div>
-        <div class="field">
-          <label for="phone">Your WhatsApp / phone <span class="req">*</span></label>
-          <input class="inp" id="phone" name="phone" inputmode="tel" placeholder="0XX XXX XXXX" required />
-          <div class="err">Valid number needed.</div>
+
+        <div class="q-step" data-step="1">
+          <h3 id="q1title">Details</h3>
+          <p class="sub" id="q1sub">A few specifics so we can quote accurately.</p>
+          <div id="q1fields"></div>
+          <div class="q-nav">
+            <button class="btn btn-ghost" onclick="goStep(0)">Back</button>
+            <button class="btn btn-gold" onclick="toReview()">Continue
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#241100" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="field">
-        <label for="details">Anything else? <span style="color:var(--muted);font-weight:400">(optional)</span></label>
-        <textarea class="inp" id="details" name="details" placeholder="Colour ideas, finish, timeline, references…"></textarea>
-      </div>
+        <div class="q-step" data-step="2">
+          <h3>Almost done</h3>
+          <p class="sub">Where can Billy reach you? Then send it straight to WhatsApp.</p>
+          <div class="q-two">
+            <div class="q-field"><label>Your Name</label><input class="q-input" id="fName" placeholder="e.g. John" /></div>
+            <div class="q-field"><label>Your Area</label><input class="q-input" id="fArea" placeholder="e.g. Krugersdorp" /></div>
+          </div>
+          <div class="q-field"><label>When suits you?</label>
+            <div class="chips" id="timingChips">
+              <div class="chip" onclick="pickTiming(this,'ASAP')">ASAP</div>
+              <div class="chip" onclick="pickTiming(this,'This week')">This week</div>
+              <div class="chip" onclick="pickTiming(this,'date')">📅 Pick a date</div>
+            </div>
+            <div class="cal mini" id="calBox" style="display:none">
+              <div class="cal-head">
+                <button type="button" class="cal-nav" onclick="calMove(-1)" aria-label="Previous month">‹</button>
+                <span id="calMonth"></span>
+                <button type="button" class="cal-nav" onclick="calMove(1)" aria-label="Next month">›</button>
+              </div>
+              <div class="cal-dow"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+              <div class="cal-grid" id="calGrid"></div>
+              <div class="cal-sel" id="calSel">Tap a day</div>
+            </div>
+          </div>
+          <div class="q-field"><label>Anything else? (optional)</label><textarea class="q-textarea" id="fNotes" placeholder="Extra details, deadline, budget..."></textarea></div>
+          <div class="q-review" id="reviewBox"></div>
+          <div class="q-nav">
+            <button class="btn btn-ghost" onclick="goStep(1)">Back</button>
+            <button class="btn btn-wa" onclick="sendWhatsApp()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#053b1e"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg>
+              Send to WhatsApp
+            </button>
+          </div>
+          <p class="wa-note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b9a9d4" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            No spam. Opens WhatsApp to Billy · 084 609 2023
+          </p>
+        </div>
 
-      <p class="q-note">By sending, your request opens in WhatsApp to <b>+27 84 609 2023</b>. No payment — we reply with your quote.</p>
-      <button type="submit" class="btn btn-wa q-submit">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.512 5.26l-.999 3.648 3.876-1.017z"/></svg>
-        Send Quote Request via WhatsApp
-      </button>
-    </form>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
-<section id="about">
-  <div class="wrap about-grid">
-    <div class="reveal">
-      <p class="eyebrow">Who We Are</p>
-      <h2>Krugersdorp's <span class="grad">Custom Moto Shop</span></h2>
-      <p>Cheque Book Racing was built by riders, for riders. Established in 2025, we live for two wheels — whether that's keeping your daily running tight or turning your machine into a one-of-one show build.</p>
-      <p>Servicing, maintenance, makeovers, wraps and paint — all under one roof. Honest work, real attention to detail, and a finish you'll be proud to park anywhere.</p>
-      <div style="margin-top:24px">
-        <div class="feat"><svg class="fi" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Specialists in custom wraps &amp; show paint</span></div>
-        <div class="feat"><svg class="fi" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full mechanical servicing &amp; diagnostics</span></div>
-        <div class="feat"><svg class="fi" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Quotes straight to WhatsApp — fast &amp; clear</span></div>
-      </div>
-    </div>
-    <div class="about-art reveal" data-d="1">
-      <svg viewBox="0 0 400 400" style="width:100%;height:100%" id="aboutArt" aria-hidden="true"></svg>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact">
+<!-- ================= MERCH ================= -->
+<section class="sec" id="merch">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Get In Touch</p>
-      <h2>Let's <span class="grad">Talk Bikes</span></h2>
-    </div>
-    <div class="contact-grid">
-      <div class="c-card reveal">
-        <div class="c-row">
-          <span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg></span>
-          <div><small>WhatsApp / Call</small><b>+27 84 609 2023</b></div>
-        </div>
-        <div class="c-row">
-          <span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg></span>
-          <div><small>Area</small><b>Krugersdorp, Gauteng</b></div>
-        </div>
-        <div class="c-row">
-          <span class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2"/></svg></span>
-          <div><small>Email</small><b>info@chequebookracing.co.za</b></div>
-        </div>
-        <div class="socials">
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook (link coming soon)">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--gold)"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0022 12z"/></svg>
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram (link coming soon)">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="var(--gold)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="var(--gold)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="var(--gold)"/></svg>
-          </a>
-          <a href="https://wa.me/27846092023" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--gold)"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
-          </a>
-        </div>
-        <p style="color:var(--muted);font-size:.8rem;margin-top:16px">Facebook &amp; Instagram links are placeholders — send us the URLs and we'll wire them in.</p>
+    <div class="merch-band reveal">
+      <div>
+        <span class="kick">Rep The Brand</span>
+        <h2>Cheque Book <span class="g">Merch</span></h2>
+        <p>Tees, caps, decals and workshop gear. Wear the checkered flag. Ask about current stock and drops.</p>
+        <a href="https://wa.me/27846092023?text=Hi%20Cheque%20Book%20Racing%2C%20I%27m%20keen%20on%20some%20merch%20%F0%9F%8F%81" class="btn btn-gold">Ask About Merch</a>
       </div>
-      <div class="c-card reveal" data-d="1" style="display:flex;flex-direction:column;justify-content:center;text-align:center;background:linear-gradient(150deg,var(--bg-2),rgba(200,206,218,.12))">
-        <h3 style="font-size:1.6rem;text-transform:uppercase;margin-bottom:12px">Ready to roll?</h3>
-        <p style="color:var(--muted);margin-bottom:22px">Build your quote in 30 seconds and we'll be in touch.</p>
-        <a class="btn btn-pri" href="#quote" style="justify-content:center">Build My Quote →</a>
-        <a class="btn btn-ghost" href="https://wa.me/27846092023" target="_blank" rel="noopener noreferrer" style="justify-content:center;margin-top:12px">Message on WhatsApp</a>
-      </div>
+      <div class="merch-visual"><img src="logo.jpg" alt="Cheque Book Racing merch"/></div>
     </div>
   </div>
 </section>
-</main>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="wrap foot-grid">
-    <div style="display:flex;align-items:center;gap:12px">
-      <span class="badge" id="footBadge" style="width:42px;height:42px"></span>
-      <div><b style="font-family:'Oswald';letter-spacing:.5px">CHEQUE BOOK RACING</b><br><small>Servicing · Wraps · Custom Paint · Krugersdorp</small></div>
+<div class="checker gold"></div>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="logo.jpg" alt="Cheque Book Racing badge" />
+        <p>Race-bred motorcycle workshop. Service, respray, tuning and custom builds — done with pride in Krugersdorp.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">Bike Service</a>
+        <a href="#services">Performance &amp; Tuning</a>
+        <a href="#services">Respray &amp; Paint</a>
+        <a href="#services">Custom Wraps</a>
+        <a href="#work">Our Work</a>
+      </div>
+      <div class="foot-col foot-contact">
+        <h4>Get In Touch</h4>
+        <a href="https://wa.me/27846092023">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.9-1.4A10 10 0 1012 2z"/></svg>
+          WhatsApp: 084 609 2023
+        </a>
+        <a href="tel:+27846092023">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.6a2 2 0 01-.5 2.1L8.1 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.8.3 1.7.6 2.6.7a2 2 0 011.7 2z"/></svg>
+          Call Billy
+        </a>
+        <p style="margin-top:6px">Billy • Owner</p>
+        <p>Krugersdorp, Gauteng</p>
+      </div>
     </div>
-    <div style="text-align:right">
-      <small>© <span id="yr"></span> Cheque Book Racing. All rights reserved.</small><br>
-      <a class="admin-link" href="#" id="adminOpen">● Staff Login</a>
+    <div class="foot-bottom">
+      <span>© 2025 Cheque Book Racing. All rights reserved.</span>
+      <span>Est. 2025 🏁 Built to race.</span>
     </div>
   </div>
 </footer>
 
-<!-- ===== WHATSAPP FLOAT ===== -->
-<a class="wa-float" href="https://wa.me/27846092023?text=Hi%20Cheque%20Book%20Racing%2C%20I'd%20like%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" fill="#fff"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.821 11.821 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.512 5.26l-.999 3.648 3.876-1.017z"/></svg>
+<a class="wa-float" href="https://wa.me/27846092023?text=Hi%20Cheque%20Book%20Racing%20%F0%9F%8F%81" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.94 1.34-.5.05-.5.4-3.15-.66-2.66-1.06-4.35-3.78-4.48-3.96-.13-.18-1.08-1.44-1.08-2.74s.68-1.94.92-2.2c.24-.27.53-.34.7-.34l.5.01c.16 0 .38-.06.6.45.23.53.76 1.86.83 2 .07.13.11.29.02.47-.09.18-.13.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.28-.12.53.16.27.7 1.14 1.5 1.85 1.03.92 1.9 1.2 2.16 1.34.27.13.42.11.58-.07.16-.18.66-.77.84-1.04.18-.27.35-.22.6-.13.24.09 1.55.73 1.82.86.27.13.44.2.5.31.07.11.07.63-.17 1.31z"/></svg>
 </a>
 
-<!-- ===== ADMIN MODAL ===== -->
-<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-label="Staff dashboard">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h3>CRM · Quote Requests</h3>
-      <button class="modal-x" id="adminClose" aria-label="Close">×</button>
-    </div>
-    <div class="modal-body">
-      <!-- login -->
-      <div id="loginView">
-        <div class="login-box">
-          <p style="color:var(--muted);font-size:.9rem;margin-bottom:14px;text-align:center">Staff access only.</p>
-          <div class="field">
-            <input class="inp" id="admPass" type="password" placeholder="Password" autocomplete="current-password" />
-            <div class="err" id="passErr">Wrong password.</div>
-          </div>
-          <button class="btn btn-pri" id="admLogin" style="width:100%;justify-content:center">Log In</button>
-        </div>
-      </div>
-      <!-- dashboard -->
-      <div id="dashView" style="display:none">
-        <div class="admin-bar">
-          <input class="inp" id="search" placeholder="Search name, bike, service…" />
-          <button class="btn btn-ghost mini" id="exportBtn">Export CSV</button>
-          <button class="btn btn-ghost mini" id="clearBtn">Clear All</button>
-          <button class="btn btn-ghost mini" id="logoutBtn">Lock</button>
-        </div>
-        <div class="tbl-scroll">
-          <table class="lead-tbl" id="leadTbl">
-            <thead><tr><th>Date</th><th>Name</th><th>Bike</th><th>Services</th><th>Contact</th><th>Notes</th><th>Status</th><th></th></tr></thead>
-            <tbody id="leadBody"></tbody>
-          </table>
-        </div>
-        <div class="empty" id="emptyState" style="display:none">No quote requests yet. They'll show here once customers submit.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
 <script>
-"use strict";
-(function(){
-  // ============ CONFIG ============
-  var WA_NUMBER = "27846092023";
-  var ADMIN_PASS = "cheque2025";          // staff dashboard password (client can change here)
-  var LS_KEY = "cbr_leads_v1";
-  var SESS_KEY = "cbr_admin_session";
-  var SERVICES = ["Servicing","Maintenance","Makeover","Vinyl Wrapping","Custom Paint"];
+/* ---------- DATA ---------- */
+const services = [
+  {t:"Minor & Major Service",d:"Oil, filters, brakes, spark plugs, chain adjustment and a full safety inspection.",i:'<path d="M14.7 6.3a4 4 0 00-5.4 5.4l-6 6 2 2 6-6a4 4 0 005.4-5.4l-2.3 2.3-1.7-.3-.3-1.7z"/>'},
+  {t:"Fault Finding",d:"Bike not running right? We diagnose electrical, fuelling and mechanical gremlins.",i:'<rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m14 0h2M3 15h2m14 0h2"/>'},
+  {t:"Performance Upgrades",d:"Exhaust systems, air filters, ECU tuning and full performance kits for real gains.",i:'<path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>'},
+  {t:"Performance Exhausts",d:"Slip-ons and full systems — more power, sharper sound, lighter weight.",i:'<path d="M4 12h10a4 4 0 014 4v2M4 12a2 2 0 010-4h6M14 16h6"/>'},
+  {t:"Respray & Custom Paint",d:"Full resprays and one-off custom paint jobs finished to a show standard.",i:'<path d="M12 2l3 6 6 .5-4.5 4 1.5 6-6-3.2L6 18.5 7.5 12.5 3 8.5 9 8z"/>'},
+  {t:"Custom Wrapping",d:"Vinyl wraps — colour changes, race liveries and full custom designs.",i:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M9 5v14"/>'},
+  {t:"Detailing",d:"Deep clean, polish and protection so your bike looks like it just left the crate.",i:'<path d="M12 3v6m0 0a3 3 0 100 6 3 3 0 000-6zm0 12v6"/>'},
+  {t:"Chain & Sprockets",d:"Worn drivetrain? Fresh chain and sprocket kits fitted and set correctly.",i:'<circle cx="12" cy="12" r="4"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/>'},
+  {t:"Fork Seals & Suspension",d:"Leaking forks and tired suspension rebuilt for a planted, safe ride.",i:'<path d="M8 3v6l-2 2v10m10-18v6l2 2v10M6 21h4m4 0h4"/>'},
+  {t:"Spark Plugs & Filters",d:"Spark plugs, air filters and the small parts that keep it breathing right.",i:'<path d="M12 2v4m-3 0h6l-1 6H10L9 6zm1 6v8m2-8v8m-4 2h6"/>'},
+  {t:"Tyres",d:"Supply and fit — the right rubber for road, track or touring.",i:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>'},
+  {t:"Full Custom Builds",d:"Handlebar swaps, seats, lighting and ground-up builds — your dream bike, real.",i:'<path d="M3 12h4l2-3h6l2 3h4M7 12a2 2 0 11-4 0 2 2 0 014 0zm14 0a2 2 0 11-4 0 2 2 0 014 0z"/>'},
+];
 
-  // ============ SECURITY: escape any user text before it touches the DOM ============
-  function esc(s){
-    return String(s == null ? "" : s)
-      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
-      .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
-  }
-  function clean(s){ return String(s||"").replace(/[<>]/g,"").trim().slice(0,400); }
-  function $(id){ return document.getElementById(id); }
+const baItems = [
+  {h:"Full Respray — Sportbike",s:"Faded OEM → custom purple & gold"},
+  {h:"Colour Change Wrap",s:"Stock black → satin race livery"},
+  {h:"Tank Restoration",s:"Scratched & dull → mirror finish"},
+  {h:"Engine Bay Detail",s:"Grimy → showroom clean"},
+];
 
-  // ============ BADGE LOGO (inline SVG, brand colours) ============
-  function badgeSVG(){
-    return '<svg viewBox="0 0 120 120" width="100%" height="100%" role="img" aria-label="Cheque Book Racing badge">'
-      + '<defs>'
-      + '<path id="arcTop" d="M22 60a38 38 0 0 1 76 0" fill="none"/>'
-      + '<path id="arcBot" d="M24 64a36 36 0 0 0 72 0" fill="none"/>'
-      + '<linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6e9ee"/><stop offset="1" stop-color="#8b919c"/></linearGradient>'
-      + '</defs>'
-      + '<circle cx="60" cy="60" r="58" fill="#3a4256"/>'
-      + '<circle cx="60" cy="60" r="50" fill="#0a0c12" stroke="#f4efe1" stroke-width="1.5"/>'
-      + '<text font-family="Oswald,sans-serif" font-weight="700" font-size="9.5" fill="#d4a838" letter-spacing="1.5">'
-      + '<textPath href="#arcTop" startOffset="50%" text-anchor="middle">CHEQUE BOOK RACING</textPath></text>'
-      + '<text font-family="Oswald,sans-serif" font-weight="700" font-size="9" fill="#d4a838" letter-spacing="2">'
-      + '<textPath href="#arcBot" startOffset="50%" text-anchor="middle">EST. 2025</textPath></text>'
-      // helmet
-      + '<g transform="translate(60 62)">'
-      + '<path d="M-22 4 a22 20 0 0 1 44 -2 l0 6 -8 4 -10 2 -2 6 -18 0 a8 8 0 0 1 -8 -8 z" fill="url(#hg)" stroke="#1a1020" stroke-width="1.5"/>'
-      + '<path d="M-20 0 a20 18 0 0 1 40 0 l-4 5 -32 0 z" fill="#d4a838" opacity=".85"/>'
-      + '<path d="M-16 8 l24 0 -2 6 -16 0 a6 6 0 0 1 -6 -6z" fill="#0a0c12"/>'
-      + '<circle cx="16" cy="2" r="2" fill="#0a0c12"/>'
-      + '</g>'
-      // mini checkered flags
-      + '<g transform="translate(20 70) rotate(-15)">' + checker() + '</g>'
-      + '<g transform="translate(86 70) rotate(15) scale(-1,1)">' + checker() + '</g>'
-      + '</svg>';
-  }
-  function checker(){
-    var s='<g>';
-    for(var r=0;r<3;r++){for(var c=0;c<3;c++){
-      if((r+c)%2===0) s+='<rect x="'+(c*4)+'" y="'+(r*4)+'" width="4" height="4" fill="#f4efe1"/>';
-    }}
-    s+='<rect x="0" y="0" width="12" height="12" fill="none" stroke="#0a0c12" stroke-width=".6"/>';
-    s+='<line x1="-1" y1="-2" x2="-1" y2="16" stroke="#3a4256" stroke-width="1.5"/></g>';
-    return s;
-  }
-  ["navBadge","footBadge"].forEach(function(id){
-    var el=$(id); if(!el) return;
-    el.innerHTML = '<img src="logo.jpg" alt="Cheque Book Racing logo" class="logo-img" decoding="async">';
+const flow = {
+  service:{label:"Service",icon:'<path d="M14.7 6.3a4 4 0 00-5.4 5.4l-6 6 2 2 6-6a4 4 0 005.4-5.4l-2.3 2.3-1.7-.3-.3-1.7z"/>',
+    title:"Bike Service",sub:"Keep it running sweet — tell us the basics.",
+    fields:[
+      {id:"level",label:"Which service?",type:"chips",opts:["Minor Service","Major Service","Not sure"]},
+      {id:"bike",label:"Bike make & model",type:"text",ph:"e.g. Yamaha R6"},
+      {id:"mileage",label:"Approx mileage",type:"text",ph:"e.g. 24 000 km"},
+    ]},
+  fault:{label:"Fault Finding",icon:'<rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m14 0h2M3 15h2m14 0h2"/>',
+    title:"Fault Finding",sub:"Describe the problem so we can pin it down.",
+    fields:[
+      {id:"bike",label:"Bike make & model",type:"text",ph:"e.g. Kawasaki Z900"},
+      {id:"symptom",label:"What's it doing?",type:"textarea",ph:"e.g. Cuts out at idle, hard to start when cold..."},
+      {id:"when",label:"When does it happen?",type:"chips",opts:["Cold start","Idling","Under load","Braking","Random"]},
+      {id:"lights",label:"Warning lights?",type:"chips",opts:["Yes","No","Not sure"]},
+    ]},
+  respray:{label:"Respray",icon:'<path d="M12 2l3 6 6 .5-4.5 4 1.5 6-6-3.2L6 18.5 7.5 12.5 3 8.5 9 8z"/>',
+    title:"Respray, Paint & Wraps",sub:"Let's make it look mean.",
+    fields:[
+      {id:"job",label:"What's the job?",type:"chips",opts:["Full Respray","Custom Paint","Vinyl Wrap","Touch-up"]},
+      {id:"bike",label:"Bike make & model",type:"text",ph:"e.g. BMW S1000RR"},
+      {id:"colour",label:"Colour / design idea",type:"textarea",ph:"e.g. Matte purple with gold pinstripe, race number 46..."},
+      {id:"ref",label:"Got a reference pic?",type:"chips",opts:["Yes — I'll send on WhatsApp","No, need ideas"]},
+    ]},
+  tuning:{label:"Tuning",icon:'<path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>',
+    title:"Performance & Tuning",sub:"More power, better sound, sharper bike.",
+    fields:[
+      {id:"upgrade",label:"What are you after?",type:"chips",opts:["Exhaust","Air Filter","ECU Tune","Full Kit","Chain & Sprockets","Suspension"]},
+      {id:"bike",label:"Bike make & model",type:"text",ph:"e.g. Yamaha MT-09"},
+      {id:"goal",label:"Main goal?",type:"chips",opts:["More power","Better sound","Track use","Daily ride"]},
+      {id:"notes",label:"Any details?",type:"textarea",ph:"Current mods, budget, brand preference..."},
+    ]},
+  appearance:{label:"Appearance",icon:'<path d="M12 3v6m0 0a3 3 0 100 6 3 3 0 000-6zm0 12v6"/>',
+    title:"Appearance & Parts",sub:"Detailing, tyres, plugs, seals & finishing touches.",
+    fields:[
+      {id:"item",label:"What do you need?",type:"chips",opts:["Detailing","Tyres","Spark Plugs","Air Filters","Fork Seals","Merch"]},
+      {id:"bike",label:"Bike make & model",type:"text",ph:"e.g. Honda CBR600"},
+      {id:"notes",label:"Details",type:"textarea",ph:"e.g. Front & rear tyres, full detail before a show..."},
+    ]},
+};
+
+/* ---------- RENDER SERVICES ---------- */
+document.getElementById('svcGrid').innerHTML = services.map(s=>`
+  <div class="svc reveal">
+    <div class="ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">${s.i}</svg></div>
+    <h3>${s.t}</h3><p>${s.d}</p>
+  </div>`).join('');
+
+/* ---------- RENDER BEFORE/AFTER ---------- */
+document.getElementById('baGrid').innerHTML = baItems.map((b,idx)=>`
+  <div class="ba reveal">
+    <div class="ba-slider" id="ba${idx}">
+      <div class="ba-layer ba-before"><span class="ba-tag b">BEFORE</span>BEFORE</div>
+      <div class="ba-layer ba-after" id="baAfter${idx}"><span class="ba-tag a">AFTER</span>AFTER</div>
+      <div class="ba-handle" id="baHandle${idx}"></div>
+    </div>
+    <div class="ba-cap"><h4>${b.h}</h4><span>${b.s}</span></div>
+  </div>`).join('');
+
+baItems.forEach((_,idx)=>{
+  const sl=document.getElementById('ba'+idx), af=document.getElementById('baAfter'+idx), hn=document.getElementById('baHandle'+idx);
+  let drag=false;
+  const set=x=>{
+    const r=sl.getBoundingClientRect();
+    let p=((x-r.left)/r.width)*100; p=Math.max(2,Math.min(98,p));
+    af.style.clipPath=`inset(0 0 0 ${p}%)`; hn.style.left=p+'%';
+  };
+  const move=e=>{if(!drag)return; const x=e.touches?e.touches[0].clientX:e.clientX; set(x);};
+  sl.addEventListener('mousedown',e=>{drag=true;set(e.clientX)});
+  sl.addEventListener('touchstart',e=>{drag=true;set(e.touches[0].clientX)},{passive:true});
+  window.addEventListener('mousemove',move); window.addEventListener('touchmove',move,{passive:true});
+  window.addEventListener('mouseup',()=>drag=false); window.addEventListener('touchend',()=>drag=false);
+});
+
+/* ---------- QUOTE FLOW ---------- */
+let state={cat:null,answers:{}};
+document.getElementById('catGrid').innerHTML = Object.entries(flow).map(([k,v])=>`
+  <div class="cat" data-cat="${k}" onclick="pickCat('${k}')">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">${v.icon}</svg>
+    <div class="t">${v.label}</div>
+  </div>`).join('');
+
+function pickCat(k){
+  state.cat=k; state.answers={};
+  document.querySelectorAll('.cat').forEach(c=>c.classList.toggle('sel',c.dataset.cat===k));
+  const f=flow[k];
+  document.getElementById('q1title').textContent=f.title;
+  document.getElementById('q1sub').textContent=f.sub;
+  document.getElementById('q1fields').innerHTML=f.fields.map(fl=>{
+    if(fl.type==='chips') return `<div class="q-field"><label>${fl.label}</label><div class="chips" data-id="${fl.id}">${fl.opts.map(o=>`<div class="chip" onclick="pickChip(this,'${fl.id}')">${o}</div>`).join('')}</div></div>`;
+    if(fl.type==='textarea') return `<div class="q-field"><label>${fl.label}</label><textarea class="q-textarea" data-id="${fl.id}" placeholder="${fl.ph||''}"></textarea></div>`;
+    return `<div class="q-field"><label>${fl.label}</label><input class="q-input" data-id="${fl.id}" placeholder="${fl.ph||''}"/></div>`;
+  }).join('');
+  setTimeout(()=>goStep(1),160);
+}
+function pickChip(el,id){
+  el.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel'); state.answers[id]=el.textContent;
+}
+function collectFields(){
+  document.querySelectorAll('#q1fields [data-id]').forEach(el=>{
+    if(el.classList.contains('chips'))return;
+    if(el.value && el.value.trim()) state.answers[el.dataset.id]=el.value.trim();
   });
+}
+function goStep(n){
+  document.querySelectorAll('.q-step').forEach(s=>s.classList.toggle('active',+s.dataset.step===n));
+  ['pb0','pb1','pb2'].forEach((id,i)=>document.getElementById(id).classList.toggle('done',i<=n));
+  document.getElementById('quote').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function toReview(){
+  collectFields();
+  const f=flow[state.cat];
+  let rows=`<div class="line"><span class="k">Service</span><span class="v">${f.label}</span></div>`;
+  f.fields.forEach(fl=>{ if(state.answers[fl.id]) rows+=`<div class="line"><span class="k">${fl.label}</span><span class="v">${state.answers[fl.id]}</span></div>`; });
+  document.getElementById('reviewBox').innerHTML=rows;
+  goStep(2);
+}
+function sendWhatsApp(){
+  collectFields();
+  const f=flow[state.cat];
+  const name=document.getElementById('fName').value.trim();
+  const area=document.getElementById('fArea').value.trim();
+  const notes=document.getElementById('fNotes').value.trim();
+  let msg=`Hi Cheque Book Racing! 🏁\n\n*Enquiry: ${f.label}*\n`;
+  f.fields.forEach(fl=>{ if(state.answers[fl.id]) msg+=`• ${fl.label}: ${state.answers[fl.id]}\n`; });
+  if(timing==='date' && calPick) msg+=`• When: ${fmtDate(calPick)}\n`;
+  else if(timing && timing!=='date') msg+=`• When: ${timing}\n`;
+  if(name) msg+=`\n*Name:* ${name}\n`;
+  if(area) msg+=`*Area:* ${area}\n`;
+  if(notes) msg+=`*Notes:* ${notes}\n`;
+  msg+=`\nPlease send me a quote 👍`;
+  window.open(`https://wa.me/27846092023?text=${encodeURIComponent(msg)}`,'_blank');
+}
 
-  // ============ GALLERY PLACEHOLDERS ============
-  (function(){
-    var items = [
-      {t:"Full Custom Wrap",k:"WRAP"},
-      {t:"Candy Paint Build",k:"PAINT"},
-      {t:"Engine Rebuild",k:"SERVICE"},
-      {t:"Matte Black Makeover",k:"MAKEOVER"},
-      {t:"Race Fairings",k:"WRAP"},
-      {t:"Show Detail",k:"PAINT"}
-    ];
-    var pal = [["#c2c7d0","#d4a838"],["#d4a838","#3a4256"],["#3a4256","#e6e9ee"]];
-    var html = items.map(function(it,i){
-      var c = pal[i%pal.length];
-      return '<figure>'
-        + '<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'
-        + '<defs><linearGradient id="gg'+i+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'" stop-opacity=".5"/><stop offset="1" stop-color="'+c[1]+'" stop-opacity=".25"/></linearGradient></defs>'
-        + '<rect width="400" height="300" fill="#11141d"/><rect width="400" height="300" fill="url(#gg'+i+')"/>'
-        + '<path d="M60 210 q40-90 130-90 t150 90" fill="none" stroke="'+c[1]+'" stroke-width="3" opacity=".5"/>'
-        + '<circle cx="120" cy="210" r="34" fill="none" stroke="'+c[0]+'" stroke-width="6"/><circle cx="290" cy="210" r="34" fill="none" stroke="'+c[0]+'" stroke-width="6"/>'
-        + '<text x="200" y="150" text-anchor="middle" font-family="Oswald,sans-serif" font-size="26" font-weight="700" fill="#f4efe1" opacity=".5">CBR</text>'
-        + '</svg>'
-        + '<figcaption>'+esc(it.t)+'<span>'+esc(it.k)+'</span></figcaption></figure>';
-    }).join("");
-    $("galGrid").innerHTML = html;
-  })();
-
-  // ============ ABOUT ART (animated speedometer SVG) ============
-  (function(){
-    var a = $("aboutArt");
-    if(!a) return;
-    a.innerHTML =
-      '<circle cx="200" cy="200" r="150" fill="none" stroke="#3a4256" stroke-width="2"/>'
-      + '<path id="speedArc" d="M90 280 A150 150 0 1 1 310 280" fill="none" stroke="#171b26" stroke-width="16" stroke-linecap="round"/>'
-      + '<path id="speedFill" d="M90 280 A150 150 0 1 1 310 280" fill="none" stroke="url(#sf)" stroke-width="16" stroke-linecap="round"/>'
-      + '<defs><linearGradient id="sf" x1="0" x2="1"><stop offset="0" stop-color="#d4a838"/><stop offset="1" stop-color="#e6e9ee"/></linearGradient></defs>'
-      + '<g id="needle" transform="rotate(-120 200 200)"><line x1="200" y1="200" x2="200" y2="80" stroke="#d4a838" stroke-width="4" stroke-linecap="round"/></g>'
-      + '<circle cx="200" cy="200" r="12" fill="#c2c7d0"/>'
-      + '<text x="200" y="240" text-anchor="middle" font-family="Oswald,sans-serif" font-size="34" font-weight="700" fill="#f4efe1">FULL</text>'
-      + '<text x="200" y="265" text-anchor="middle" font-family="Rajdhani,sans-serif" font-size="13" letter-spacing="3" fill="#9aa0ad">THROTTLE</text>';
-  })();
-
-  // ============ SCROLL-TRIGGERED SVG DRAW + REVEALS (no hardcoded path lengths) ============
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      e.target.classList.add("in");
-      io.unobserve(e.target);
-    });
-  },{threshold:.15});
-  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
-
-  // speedo fill animation when about scrolls in — compute length live
-  (function(){
-    var fill = document.getElementById("speedFill");
-    var needle = document.getElementById("needle");
-    if(!fill) return;
-    var len = fill.getTotalLength();              // measured, not hardcoded
-    fill.style.strokeDasharray = len;
-    fill.style.strokeDashoffset = len;
-    var done = false;
-    var o2 = new IntersectionObserver(function(en){
-      en.forEach(function(x){
-        if(x.isIntersecting && !done){
-          done = true;
-          fill.style.transition = "stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1)";
-          fill.style.strokeDashoffset = len*0.18;
-          if(needle){ needle.style.transition="transform 2.2s cubic-bezier(.16,1,.3,1)"; needle.style.transform="rotate(96deg)"; needle.style.transformOrigin="200px 200px"; }
-        }
-      });
-    },{threshold:.4});
-    o2.observe(document.getElementById("about"));
-  })();
-
-  // ============ NAV ============
-  var nav = $("nav"), navToggle = $("navToggle"), navLinks = $("navLinks");
-  window.addEventListener("scroll", function(){
-    nav.classList.toggle("scrolled", window.scrollY > 30);
-  }, {passive:true});
-  var navScrim = $("navScrim");
-  function setMenu(open){
-    navLinks.classList.toggle("open", open);
-    navToggle.classList.toggle("open", open);
-    if(navScrim) navScrim.classList.toggle("show", open);
-    navToggle.setAttribute("aria-expanded", open);
-    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-    document.body.style.overflow = open ? "hidden" : "";
+/* ---------- CALENDAR ---------- */
+const MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
+let calRef=new Date(); calRef.setDate(1); calRef.setHours(0,0,0,0);
+let calPick=null;
+let timing=null;
+function pickTiming(el,val){
+  el.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  const box=document.getElementById('calBox');
+  if(val==='date'){
+    timing='date'; box.style.display='block'; renderCal();
+  }else{
+    timing=val; box.style.display='none'; calPick=null;
+    document.getElementById('calSel').textContent='Tap a day';
   }
-  navToggle.addEventListener("click", function(e){
-    e.stopPropagation();
-    setMenu(!navLinks.classList.contains("open"));
-  });
-  if(navScrim) navScrim.addEventListener("click", function(){ setMenu(false); });
-  document.addEventListener("keydown", function(e){ if(e.key==="Escape") setMenu(false); });
-  navLinks.querySelectorAll("a").forEach(function(a){
-    a.addEventListener("click", function(){ setMenu(false); });
-  });
+}
+const calToday=new Date(); calToday.setHours(0,0,0,0);
+function fmtDate(d){return d.toLocaleDateString('en-ZA',{weekday:'short',day:'numeric',month:'short',year:'numeric'});}
+function renderCal(){
+  const y=calRef.getFullYear(), m=calRef.getMonth();
+  document.getElementById('calMonth').textContent=MON[m]+' '+y;
+  const first=new Date(y,m,1).getDay();
+  const days=new Date(y,m+1,0).getDate();
+  let html='';
+  for(let i=0;i<first;i++) html+='<div class="cal-day muted"></div>';
+  for(let d=1;d<=days;d++){
+    const dd=new Date(y,m,d); dd.setHours(0,0,0,0);
+    let cls='cal-day';
+    if(dd<calToday) cls+=' past';
+    if(+dd===+calToday) cls+=' today';
+    if(calPick && +dd===+calPick) cls+=' sel';
+    html+=`<div class="${cls}" onclick="pickDay(${y},${m},${d})">${d}</div>`;
+  }
+  document.getElementById('calGrid').innerHTML=html;
+}
+function calMove(dir){
+  const n=new Date(calRef); n.setMonth(n.getMonth()+dir);
+  // don't page before current month
+  if(dir<0 && (n.getFullYear()<calToday.getFullYear() || (n.getFullYear()===calToday.getFullYear() && n.getMonth()<calToday.getMonth()))) return;
+  calRef=n; renderCal();
+}
+function pickDay(y,m,d){
+  calPick=new Date(y,m,d); calPick.setHours(0,0,0,0);
+  timing='date';
+  document.getElementById('calSel').textContent='Preferred: '+fmtDate(calPick);
+  renderCal();
+}
 
-  // ============ TILT (services) ============
-  document.querySelectorAll("[data-tilt]").forEach(function(card){
-    card.addEventListener("mousemove", function(e){
-      var r = card.getBoundingClientRect();
-      var x = e.clientX - r.left, y = e.clientY - r.top;
-      card.style.setProperty("--mx", x+"px");
-      card.style.setProperty("--my", y+"px");
-      var rx = ((y/r.height)-.5)*-6, ry = ((x/r.width)-.5)*6;
-      card.style.transform = "translateY(-6px) perspective(800px) rotateX("+rx+"deg) rotateY("+ry+"deg)";
-    });
-    card.addEventListener("mouseleave", function(){ card.style.transform=""; });
-  });
+/* ---------- NAV SCROLL ---------- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
 
-  // ============ QUOTE BUILDER ============
-  (function(){
-    var box = $("svcOpts");
-    box.innerHTML = SERVICES.map(function(s,i){
-      var id = "svc_"+i;
-      return '<div class="opt"><input type="checkbox" id="'+id+'" value="'+esc(s)+'">'
-        + '<label for="'+id+'"><span class="dot"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16181d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>'+esc(s)+'</label></div>';
-    }).join("");
+/* ---------- HERO ANGLE SLIDER ---------- */
+function setHero(btn,src){
+  const img=document.getElementById('heroImg');
+  img.style.opacity=0;
+  setTimeout(()=>{ img.src=src; img.style.opacity=1; },160);
+  document.querySelectorAll('.hero-thumb').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+}
 
-    var form = $("quoteForm");
-    var toast = $("toast");
-    function showToast(msg){ toast.textContent = msg; toast.classList.add("show"); setTimeout(function(){toast.classList.remove("show");},3800); }
+/* ---------- REVEAL + SVG DRAW ---------- */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    function markInvalid(el,bad){
-      var f = el.closest(".field");
-      if(f) f.classList.toggle("invalid", bad);
-    }
-
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      var chosen = Array.prototype.slice.call(box.querySelectorAll("input:checked")).map(function(i){return i.value;});
-      var bike = clean($("bike").value), fname = clean($("fname").value), phone = clean($("phone").value), details = clean($("details").value);
-      var ok = true;
-
-      $("svcErr").parentNode.classList.toggle("invalid", chosen.length===0);
-      if(chosen.length===0) ok=false;
-      markInvalid($("bike"), !bike); if(!bike) ok=false;
-      markInvalid($("fname"), !fname); if(!fname) ok=false;
-      var phoneOk = /[0-9]{7,}/.test(phone.replace(/\s/g,""));
-      markInvalid($("phone"), !phoneOk); if(!phoneOk) ok=false;
-
-      if(!ok){ showToast("Please complete the highlighted fields."); return; }
-
-      // save to local CRM
-      var lead = { id:"L"+(""+Math.abs(hash(fname+bike+phone+chosen.join())))+(""+(performance.now()|0)),
-        date:new Date().toLocaleString("en-ZA"), name:fname, bike:bike, services:chosen, phone:phone, notes:details, status:"new" };
-      try{
-        var arr = JSON.parse(localStorage.getItem(LS_KEY)||"[]");
-        arr.unshift(lead);
-        localStorage.setItem(LS_KEY, JSON.stringify(arr.slice(0,500)));
-      }catch(err){}
-
-      // build whatsapp message
-      var msg = "*New Quote Request — Cheque Book Racing*%0a%0a"
-        + "*Name:* "+enc(fname)+"%0a"
-        + "*Bike:* "+enc(bike)+"%0a"
-        + "*Services:* "+enc(chosen.join(", "))+"%0a"
-        + "*Phone:* "+enc(phone)+"%0a"
-        + (details ? "*Notes:* "+enc(details)+"%0a" : "")
-        + "%0aPlease send me a quote. Thanks!";
-      var url = "https://wa.me/"+WA_NUMBER+"?text="+msg;
-
-      showToast("Opening WhatsApp… send the message to finish.");
-      window.open(url, "_blank", "noopener");
-      form.reset();
-      box.querySelectorAll("input").forEach(function(i){i.checked=false;});
-    });
-
-    function enc(s){ return encodeURIComponent(s); }
-    function hash(s){ var h=0; for(var i=0;i<s.length;i++){h=(h<<5)-h+s.charCodeAt(i);h|=0;} return h; }
-  })();
-
-  // ============ ADMIN CRM DASHBOARD ============
-  (function(){
-    var modal=$("adminModal"), loginView=$("loginView"), dashView=$("dashView");
-    var lastFocus=null;
-
-    function openModal(){
-      lastFocus=document.activeElement;
-      modal.classList.add("open");
-      if(sessionStorage.getItem(SESS_KEY)==="1"){ showDash(); } else { loginView.style.display="block"; dashView.style.display="none"; setTimeout(function(){$("admPass").focus();},50); }
-    }
-    function closeModal(){ modal.classList.remove("open"); if(lastFocus) lastFocus.focus(); }
-
-    $("adminOpen").addEventListener("click", function(e){ e.preventDefault(); openModal(); });
-    $("adminClose").addEventListener("click", closeModal);
-    modal.addEventListener("click", function(e){ if(e.target===modal) closeModal(); });
-    document.addEventListener("keydown", function(e){ if(e.key==="Escape" && modal.classList.contains("open")) closeModal(); });
-
-    function doLogin(){
-      var val = $("admPass").value;
-      if(val === ADMIN_PASS){
-        sessionStorage.setItem(SESS_KEY,"1");
-        $("admPass").value="";
-        $("passErr").parentNode.classList.remove("invalid");
-        showDash();
-      } else {
-        $("passErr").parentNode.classList.add("invalid");
-        $("admPass").value="";
-      }
-    }
-    $("admLogin").addEventListener("click", doLogin);
-    $("admPass").addEventListener("keydown", function(e){ if(e.key==="Enter") doLogin(); });
-    $("logoutBtn").addEventListener("click", function(){ sessionStorage.removeItem(SESS_KEY); loginView.style.display="block"; dashView.style.display="none"; });
-
-    function getLeads(){ try{ return JSON.parse(localStorage.getItem(LS_KEY)||"[]"); }catch(e){ return []; } }
-    function saveLeads(a){ localStorage.setItem(LS_KEY, JSON.stringify(a)); }
-
-    function showDash(){
-      loginView.style.display="none"; dashView.style.display="block"; render();
-    }
-
-    function render(filter){
-      var leads = getLeads();
-      var q = (filter||"").toLowerCase();
-      if(q) leads = leads.filter(function(l){
-        return (l.name+" "+l.bike+" "+(l.services||[]).join(" ")+" "+l.phone+" "+(l.notes||"")).toLowerCase().indexOf(q)>-1;
-      });
-      var body=$("leadBody"), empty=$("emptyState");
-      if(!leads.length){ body.innerHTML=""; empty.style.display="block"; return; }
-      empty.style.display="none";
-      body.innerHTML = leads.map(function(l){
-        return '<tr data-id="'+esc(l.id)+'">'
-          + '<td>'+esc(l.date)+'</td>'
-          + '<td>'+esc(l.name)+'</td>'
-          + '<td>'+esc(l.bike)+'</td>'
-          + '<td>'+esc((l.services||[]).join(", "))+'</td>'
-          + '<td><a href="https://wa.me/'+esc((l.phone||"").replace(/[^0-9]/g,""))+'" target="_blank" rel="noopener noreferrer" style="color:var(--gold-lt)">'+esc(l.phone)+'</a></td>'
-          + '<td style="max-width:180px">'+esc(l.notes||"—")+'</td>'
-          + '<td><select class="st-sel" data-act="status"><option value="new"'+sel(l.status,"new")+'>New</option><option value="contacted"'+sel(l.status,"contacted")+'>Contacted</option><option value="done"'+sel(l.status,"done")+'>Done</option></select></td>'
-          + '<td><button class="mini btn btn-ghost" data-act="del">✕</button></td>'
-          + '</tr>';
-      }).join("");
-    }
-    function sel(a,b){ return a===b?" selected":""; }
-
-    $("leadBody").addEventListener("click", function(e){
-      var del = e.target.closest('[data-act="del"]');
-      if(del){
-        var id = del.closest("tr").getAttribute("data-id");
-        var arr = getLeads().filter(function(l){return l.id!==id;});
-        saveLeads(arr); render($("search").value);
-      }
-    });
-    $("leadBody").addEventListener("change", function(e){
-      var sl = e.target.closest('[data-act="status"]');
-      if(sl){
-        var id = sl.closest("tr").getAttribute("data-id");
-        var arr = getLeads().map(function(l){ if(l.id===id) l.status=sl.value; return l; });
-        saveLeads(arr);
-      }
-    });
-    $("search").addEventListener("input", function(){ render(this.value); });
-    $("clearBtn").addEventListener("click", function(){
-      if(confirm("Delete ALL quote requests? This cannot be undone.")){ saveLeads([]); render(); }
-    });
-    $("exportBtn").addEventListener("click", function(){
-      var leads = getLeads();
-      if(!leads.length){ alert("No data to export."); return; }
-      var rows = [["Date","Name","Bike","Services","Phone","Notes","Status"]];
-      leads.forEach(function(l){ rows.push([l.date,l.name,l.bike,(l.services||[]).join("; "),l.phone,l.notes||"",l.status]); });
-      var csv = rows.map(function(r){ return r.map(function(c){ return '"'+String(c).replace(/"/g,'""')+'"'; }).join(","); }).join("\n");
-      var blob = new Blob([csv],{type:"text/csv"});
-      var a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="cbr-quote-requests.csv"; a.click();
-      URL.revokeObjectURL(a.href);
-    });
-  })();
-
-  // ============ MISC ============
-  $("yr").textContent = new Date().getFullYear();
-})();
+document.querySelectorAll('.draw').forEach(p=>{
+  p.style.strokeDasharray=1; p.style.strokeDashoffset=1;
+  p.style.transition='stroke-dashoffset 2.4s var(--ease)';
+});
+const drawIo=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.style.strokeDashoffset=0; drawIo.unobserve(e.target);} });
+},{threshold:.2});
+document.querySelectorAll('.draw').forEach(p=>drawIo.observe(p));
 </script>
 </body>
 </html>

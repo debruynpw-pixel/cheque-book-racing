@@ -2,3 +2,16 @@ node_modules/
 .vercel/
 .playwright-mcp/
 cbr-check.png
+
+.vercel
+
+# unused generated media (kept local only)
+bike-orbit.mp4
+bike-orbit-banner.mp4
+bike-turntable.mp4
+flagship-left.png
+flagship-right.png
+flagship-banner.png
+hero-livery-front.png
+test-purple-side.png
+orbit-thumb.webp
