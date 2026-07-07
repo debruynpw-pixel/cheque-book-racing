@@ -742,6 +742,17 @@ function buildNav(bi,dir){
 
 /* ---------- QUOTE FLOW ---------- */
 let state={cat:null,answers:{}};
+/* Sequential quote ref — starts #QR1001, increments per sent request.
+   Stored in this browser's localStorage (no backend). */
+function nextQuoteRef(){
+  let n=1001;
+  try{
+    const saved=parseInt(localStorage.getItem('cbr_qr_next'),10);
+    if(!isNaN(saved)&&saved>=1001) n=saved;
+    localStorage.setItem('cbr_qr_next', n+1);
+  }catch(e){}
+  return '#QR'+n;
+}
 document.getElementById('catGrid').innerHTML = Object.entries(flow).map(([k,v])=>`
   <div class="cat" data-cat="${k}" onclick="pickCat('${k}')">
     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">${v.icon}</svg>
@@ -792,8 +803,9 @@ function sendWhatsApp(){
   const phone=document.getElementById('fPhone').value.trim();
   const email=document.getElementById('fEmail').value.trim();
   const notes=document.getElementById('fNotes').value.trim();
+  const ref=nextQuoteRef();
   const rule='━━━━━━━━━━━━━';
-  let msg=`🏁 *CHEQUE BOOK RACING* 🏁\n_New Quote Request_\n${rule}\n`;
+  let msg=`🏁 *CHEQUE BOOK RACING* 🏁\n_New Quote Request_  *${ref}*\n${rule}\n`;
   msg+=`*Service:*  ${f.label}\n\n`;
   msg+=`*Bike Details*\n`;
   f.fields.forEach(fl=>{ if(state.answers[fl.id]) msg+=`•  ${fl.label.replace(/[?:]/g,'')}:  ${state.answers[fl.id]}\n`; });
