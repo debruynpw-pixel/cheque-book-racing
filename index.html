@@ -515,6 +515,10 @@ footer{background:var(--ink);padding:70px 0 30px;border-top:1px solid rgba(123,6
             <div class="q-field"><label>Your Name</label><input class="q-input" id="fName" placeholder="e.g. John" /></div>
             <div class="q-field"><label>Your Area</label><input class="q-input" id="fArea" placeholder="e.g. Krugersdorp" /></div>
           </div>
+          <div class="q-two">
+            <div class="q-field"><label>Cell Number</label><input class="q-input" id="fPhone" type="tel" inputmode="tel" placeholder="e.g. 082 123 4567" /></div>
+            <div class="q-field"><label>Email Address</label><input class="q-input" id="fEmail" type="email" inputmode="email" placeholder="e.g. john@email.com" /></div>
+          </div>
           <div class="q-field"><label>When suits you?</label>
             <div class="chips" id="timingChips">
               <div class="chip" onclick="pickTiming(this,'ASAP')">ASAP</div>
@@ -785,6 +789,8 @@ function sendWhatsApp(){
   const f=flow[state.cat];
   const name=document.getElementById('fName').value.trim();
   const area=document.getElementById('fArea').value.trim();
+  const phone=document.getElementById('fPhone').value.trim();
+  const email=document.getElementById('fEmail').value.trim();
   const notes=document.getElementById('fNotes').value.trim();
   const rule='━━━━━━━━━━━━━';
   let msg=`🏁 *CHEQUE BOOK RACING* 🏁\n_New Quote Request_\n${rule}\n`;
@@ -794,6 +800,8 @@ function sendWhatsApp(){
   msg+=`\n*Your Details*\n`;
   if(name) msg+=`•  Name:  ${name}\n`;
   if(area) msg+=`•  Area:  ${area}\n`;
+  if(phone) msg+=`•  Cell:  ${phone}\n`;
+  if(email) msg+=`•  Email:  ${email}\n`;
   if(timing==='date' && calPick) msg+=`•  Preferred date:  ${fmtDate(calPick)}\n`;
   else if(timing && timing!=='date') msg+=`•  Preferred:  ${timing}\n`;
   if(notes) msg+=`•  Notes:  ${notes}\n`;
