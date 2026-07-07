@@ -723,6 +723,17 @@ const builds = [
       {img:"build3-04.jpg", badge:"Sorted",               cap:"Fault sorted and buttoned back up — carbon S1000RR ready to ride."},
     ]
   },
+  {
+    title:"Ducati Panigale",
+    sub:"",
+    stages:[
+      {img:"build4-00.jpg", badge:"", cap:""},
+      {img:"build4-01.jpg", badge:"", cap:""},
+      {img:"build4-02.jpg", badge:"", cap:""},
+      {img:"build4-03.jpg", badge:"", cap:""},
+      {img:"build4-04.jpg", badge:"", cap:""},
+    ]
+  },
 ];
 
 const flow = {
@@ -781,9 +792,9 @@ document.getElementById('builds').innerHTML = builds.map((b,bi)=>`
       <div class="build-track" id="bt${bi}">
         ${b.stages.map(s=>`
           <div class="build-slide">
-            <span class="stage-badge">${s.badge}</span>
-            ${s.img ? `<img src="${s.img}" alt="${s.badge}">` : `<div class="ph">${phSvg}<span>Photo coming soon</span></div>`}
-            <div class="stage-cap">${s.cap}</div>
+            ${s.badge ? `<span class="stage-badge">${s.badge}</span>` : ``}
+            ${s.img ? `<img src="${s.img}" alt="${s.badge||b.title}">` : `<div class="ph">${phSvg}<span>Photo coming soon</span></div>`}
+            ${s.cap ? `<div class="stage-cap">${s.cap}</div>` : ``}
           </div>`).join('')}
       </div>
       ${b.stages.length>1?`
