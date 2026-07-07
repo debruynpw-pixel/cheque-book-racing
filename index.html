@@ -72,15 +72,15 @@ header.nav{
 header.nav.scrolled{padding:8px 24px;background:rgba(18,10,32,.96);border-bottom:1px solid rgba(123,63,228,.3)}
 .brand{display:flex;align-items:center;gap:12px}
 .brand-logo{height:52px;width:52px;border-radius:50%;object-fit:cover;transform:scale(1.04);box-shadow:0 4px 16px rgba(0,0,0,.55);border:2px solid rgba(244,183,36,.55)}
-.brand-word{display:flex;flex-direction:column;font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.8;letter-spacing:1.5px;transform:skewX(-6deg);white-space:nowrap;transition:font-size .3s var(--ease)}
+.brand-word{display:flex;flex-direction:row;align-items:baseline;gap:.35em;font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.9;letter-spacing:1.5px;transform:skewX(-6deg);white-space:nowrap;transition:font-size .3s var(--ease)}
 .brand-word span{color:var(--gold);-webkit-text-stroke:1.2px var(--purple-700);text-shadow:2px 2px 0 var(--purple-700),3px 3px 0 rgba(0,0,0,.35)}
 .brand-word .bw-1{font-size:27px}
-.brand-word .bw-2{font-size:27px;margin-left:20px;color:var(--gold-light)}
+.brand-word .bw-2{font-size:27px;color:var(--gold-light)}
 header.nav.scrolled .brand-logo{height:44px;width:44px}
 header.nav.scrolled .brand-word .bw-1,header.nav.scrolled .brand-word .bw-2{font-size:22px}
 @media(max-width:600px){
-  .brand-word .bw-1,.brand-word .bw-2{font-size:18px}
-  .brand-word .bw-2{margin-left:14px}
+  .brand-word{gap:.28em;letter-spacing:1px}
+  .brand-word .bw-1,.brand-word .bw-2{font-size:15px}
 }
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;font-size:14px;color:var(--cream);opacity:.85;transition:color .2s,opacity .2s;position:relative}
