@@ -15,3 +15,6 @@ flagship-banner.png
 hero-livery-front.png
 test-purple-side.png
 orbit-thumb.webp
+
+# hi-res merch source PNGs (web uses compressed jpgs)
+merch/*.png
