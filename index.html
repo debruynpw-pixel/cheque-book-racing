@@ -162,10 +162,10 @@ header.nav.scrolled .brand-logo{height:44px;width:44px}
 .hero-thumb.active span{color:var(--gold-light)}
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:22px;text-align:center}
-  .hero-content{max-width:none;margin:0 auto;order:2}
+  .hero-content{max-width:none;margin:0 auto;order:1}
   .hero-content .lead{margin-left:auto;margin-right:auto}
   .hero-cta{justify-content:center}
-  .hero-media{order:1}
+  .hero-media{order:2}
   .hero-img{width:86%;max-width:380px}
 }
 
@@ -227,6 +227,35 @@ header.nav.scrolled .brand-logo{height:44px;width:44px}
 .ba-cap h4{font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:17px;color:var(--white)}
 .ba-cap span{font-size:13px;color:var(--gold-light);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1px}
 .work-note{margin-top:26px;text-align:center;color:var(--muted);font-size:14px}
+
+/* ---------- BUILD JOURNEY SLIDESHOW ---------- */
+.builds{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.build{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(123,63,228,.3);background:var(--ink);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.build-view{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0b0710}
+.build-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.build-track::-webkit-scrollbar{display:none}
+.build-slide{flex:0 0 100%;scroll-snap-align:center;position:relative;display:flex;align-items:center;justify-content:center}
+.build-slide img{width:100%;height:100%;object-fit:cover}
+.build-slide .ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);
+  background:repeating-linear-gradient(45deg,rgba(123,63,228,.06) 0 12px,transparent 12px 24px),linear-gradient(135deg,var(--purple-800),var(--purple-950))}
+.build-slide .ph svg{width:40px;height:40px;stroke:var(--violet-glow);fill:none;stroke-width:1.4;opacity:.7}
+.build-slide .ph span{font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1px;font-size:13px}
+.stage-badge{position:absolute;top:12px;left:12px;z-index:3;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px;padding:5px 13px;border-radius:6px;background:var(--gold);color:#241100;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.stage-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:34px 16px 14px;
+  background:linear-gradient(0deg,rgba(6,4,10,.92),rgba(6,4,10,.55) 60%,transparent);
+  font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:.4px;font-size:15px;color:var(--cream)}
+.build-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(18,10,32,.72);backdrop-filter:blur(4px);color:var(--gold-light);display:flex;align-items:center;justify-content:center;transition:.2s var(--ease)}
+.build-arrow:hover{background:var(--gold);color:#241100;transform:translateY(-50%) scale(1.08)}
+.build-arrow.prev{left:12px}.build-arrow.next{right:12px}
+.build-arrow svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.build-dots{position:absolute;left:0;right:0;bottom:8px;z-index:4;display:flex;gap:7px;justify-content:center;pointer-events:none}
+.build-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);transition:.25s}
+.build-dots i.on{background:var(--gold);width:22px;border-radius:4px}
+.build-cap{padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.build-cap h4{font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:18px;color:var(--white)}
+.build-cap span{font-size:13px;color:var(--gold-light);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:1px}
+@media(max-width:900px){.builds{grid-template-columns:1fr}}
 
 /* ---------- QUOTE FLOW ---------- */
 #quote{background:
@@ -435,12 +464,12 @@ footer{background:var(--ink);padding:70px 0 30px;border-top:1px solid rgba(123,6
 <section class="sec" id="work">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kick">Proof In The Paint</span>
-      <h2>Before <span class="v">&amp;</span> After</h2>
-      <p>Drag the slider to see the transformation. Real respray, wrap and rebuild work from the Cheque Book Racing floor.</p>
+      <span class="kick">The Build Journey</span>
+      <h2>Watch The <span class="v">Transformation</span></h2>
+      <p>Every build tells a story. Scroll through each stage — from the first strip-down to the final respray — and see how the bike changed week by week.</p>
     </div>
-    <div class="ba-grid" id="baGrid"></div>
-    <p class="work-note reveal">More builds on the way — bike photos get added as jobs roll out. Want your bike featured? Book it in.</p>
+    <div class="builds" id="builds"></div>
+    <p class="work-note reveal">More builds added as jobs roll out. Want your bike featured? Book it in.</p>
   </div>
 </section>
 
@@ -598,11 +627,29 @@ const services = [
   {t:"Full Custom Builds",d:"Handlebar swaps, seats, lighting and ground-up builds — your dream bike, real.",i:'<path d="M3 12h4l2-3h6l2 3h4M7 12a2 2 0 11-4 0 2 2 0 014 0zm14 0a2 2 0 11-4 0 2 2 0 014 0z"/>'},
 ];
 
-const baItems = [
-  {h:"Full Respray — Sportbike",s:"Faded OEM → custom purple & gold"},
-  {h:"Colour Change Wrap",s:"Stock black → satin race livery"},
-  {h:"Tank Restoration",s:"Scratched & dull → mirror finish"},
-  {h:"Engine Bay Detail",s:"Grimy → showroom clean"},
+/* BUILD JOURNEY — each build is a scroll-through slideshow of upgrade stages.
+   To add real photos: drop them in this folder and set "img" to the filename.
+   Leave img:"" to show a placeholder frame. Add/remove stages freely. */
+const builds = [
+  {
+    title:"Matte Blue Road Glide",
+    sub:"Silver → matte blue · 3-week build",
+    stages:[
+      {img:"build1-00.jpg", badge:"Day 1 · Stock",     cap:"How she rolled in — a stock silver Harley Road Glide."},
+      {img:"build1-01.jpg", badge:"Week 1 · Wheels",   cap:"First up: fat-spoke wheels on Harley white-letter tyres fitted."},
+      {img:"build1-02.jpg", badge:"Week 1 · Wheels",   cap:"New rolling gear on — aggressive stance, cleaned up."},
+      {img:"build1-03.jpg", badge:"Week 2 · Strip",    cap:"Tear-down begins — fairings and fenders off, prepped for paint."},
+      {img:"build1-04.jpg", badge:"Week 2 · Strip",    cap:"Stripped to the bones — every panel removed and sanded."},
+      {img:"build1-05.jpg", badge:"Week 2 · Prep",     cap:"Tank and bodywork in primer, ready for the booth."},
+      {img:"build1-06.jpg", badge:"Week 3 · Respray",  cap:"Out of the booth in matte blue — a whole new attitude."},
+      {img:"build1-07.jpg", badge:"Week 3 · Respray",  cap:"Fresh matte blue front end over the fat-spoke wheel."},
+      {img:"build1-08.jpg", badge:"Week 3 · Detail",   cap:"Deep matte blue on the tank with blacked-out Harley badge."},
+      {img:"build1-09.jpg", badge:"Week 3 · Build",    cap:"Custom diamond-stitch seat fitted against the new paint."},
+      {img:"build1-10.jpg", badge:"Week 3 · Build",    cap:"Colour-matched saddlebags with speaker lids mounted up."},
+      {img:"build1-11.jpg", badge:"Week 3 · Finished", cap:"Rear end buttoned up — clean, mean and road-legal."},
+      {img:"build1-12.jpg", badge:"Done",              cap:"Finished build — matte blue Road Glide, start to finish."},
+    ]
+  },
 ];
 
 const flow = {
@@ -653,31 +700,41 @@ document.getElementById('svcGrid').innerHTML = services.map(s=>`
     <h3>${s.t}</h3><p>${s.d}</p>
   </div>`).join('');
 
-/* ---------- RENDER BEFORE/AFTER ---------- */
-document.getElementById('baGrid').innerHTML = baItems.map((b,idx)=>`
-  <div class="ba reveal">
-    <div class="ba-slider" id="ba${idx}">
-      <div class="ba-layer ba-before"><span class="ba-tag b">BEFORE</span>BEFORE</div>
-      <div class="ba-layer ba-after" id="baAfter${idx}"><span class="ba-tag a">AFTER</span>AFTER</div>
-      <div class="ba-handle" id="baHandle${idx}"></div>
+/* ---------- RENDER BUILD JOURNEY SLIDESHOW ---------- */
+const phSvg='<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5L5 19"/></svg>';
+document.getElementById('builds').innerHTML = builds.map((b,bi)=>`
+  <div class="build reveal">
+    <div class="build-view">
+      <div class="build-track" id="bt${bi}">
+        ${b.stages.map(s=>`
+          <div class="build-slide">
+            <span class="stage-badge">${s.badge}</span>
+            ${s.img ? `<img src="${s.img}" alt="${s.badge}">` : `<div class="ph">${phSvg}<span>Photo coming soon</span></div>`}
+            <div class="stage-cap">${s.cap}</div>
+          </div>`).join('')}
+      </div>
+      ${b.stages.length>1?`
+      <button class="build-arrow prev" onclick="buildNav(${bi},-1)" aria-label="Previous stage"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="build-arrow next" onclick="buildNav(${bi},1)" aria-label="Next stage"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+      <div class="build-dots" id="bd${bi}">${b.stages.map((_,i)=>`<i class="${i===0?'on':''}"></i>`).join('')}</div>`:''}
     </div>
-    <div class="ba-cap"><h4>${b.h}</h4><span>${b.s}</span></div>
+    <div class="build-cap"><h4>${b.title}</h4><span>${b.sub}</span></div>
   </div>`).join('');
 
-baItems.forEach((_,idx)=>{
-  const sl=document.getElementById('ba'+idx), af=document.getElementById('baAfter'+idx), hn=document.getElementById('baHandle'+idx);
-  let drag=false;
-  const set=x=>{
-    const r=sl.getBoundingClientRect();
-    let p=((x-r.left)/r.width)*100; p=Math.max(2,Math.min(98,p));
-    af.style.clipPath=`inset(0 0 0 ${p}%)`; hn.style.left=p+'%';
-  };
-  const move=e=>{if(!drag)return; const x=e.touches?e.touches[0].clientX:e.clientX; set(x);};
-  sl.addEventListener('mousedown',e=>{drag=true;set(e.clientX)});
-  sl.addEventListener('touchstart',e=>{drag=true;set(e.touches[0].clientX)},{passive:true});
-  window.addEventListener('mousemove',move); window.addEventListener('touchmove',move,{passive:true});
-  window.addEventListener('mouseup',()=>drag=false); window.addEventListener('touchend',()=>drag=false);
+builds.forEach((b,bi)=>{
+  if(b.stages.length<=1) return;
+  const track=document.getElementById('bt'+bi), dots=document.getElementById('bd'+bi).children;
+  track.addEventListener('scroll',()=>{
+    const i=Math.round(track.scrollLeft/track.clientWidth);
+    [...dots].forEach((d,k)=>d.classList.toggle('on',k===i));
+  },{passive:true});
 });
+function buildNav(bi,dir){
+  const track=document.getElementById('bt'+bi);
+  const i=Math.round(track.scrollLeft/track.clientWidth);
+  const n=Math.max(0,Math.min(builds[bi].stages.length-1,i+dir));
+  track.scrollTo({left:n*track.clientWidth,behavior:'smooth'});
+}
 
 /* ---------- QUOTE FLOW ---------- */
 let state={cat:null,answers:{}};
@@ -729,14 +786,18 @@ function sendWhatsApp(){
   const name=document.getElementById('fName').value.trim();
   const area=document.getElementById('fArea').value.trim();
   const notes=document.getElementById('fNotes').value.trim();
-  let msg=`Hi Cheque Book Racing! 🏁\n\n*Enquiry: ${f.label}*\n`;
-  f.fields.forEach(fl=>{ if(state.answers[fl.id]) msg+=`• ${fl.label}: ${state.answers[fl.id]}\n`; });
-  if(timing==='date' && calPick) msg+=`• When: ${fmtDate(calPick)}\n`;
-  else if(timing && timing!=='date') msg+=`• When: ${timing}\n`;
-  if(name) msg+=`\n*Name:* ${name}\n`;
-  if(area) msg+=`*Area:* ${area}\n`;
-  if(notes) msg+=`*Notes:* ${notes}\n`;
-  msg+=`\nPlease send me a quote 👍`;
+  const rule='━━━━━━━━━━━━━';
+  let msg=`🏁 *CHEQUE BOOK RACING* 🏁\n_New Quote Request_\n${rule}\n`;
+  msg+=`*Service:*  ${f.label}\n\n`;
+  msg+=`*Bike Details*\n`;
+  f.fields.forEach(fl=>{ if(state.answers[fl.id]) msg+=`•  ${fl.label.replace(/[?:]/g,'')}:  ${state.answers[fl.id]}\n`; });
+  msg+=`\n*Your Details*\n`;
+  if(name) msg+=`•  Name:  ${name}\n`;
+  if(area) msg+=`•  Area:  ${area}\n`;
+  if(timing==='date' && calPick) msg+=`•  Preferred date:  ${fmtDate(calPick)}\n`;
+  else if(timing && timing!=='date') msg+=`•  Preferred:  ${timing}\n`;
+  if(notes) msg+=`•  Notes:  ${notes}\n`;
+  msg+=`${rule}\n_Please send me a quote 👍_`;
   window.open(`https://wa.me/27846092023?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
