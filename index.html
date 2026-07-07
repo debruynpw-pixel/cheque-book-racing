@@ -158,21 +158,18 @@ header.nav.scrolled .brand-word .bw-1,header.nav.scrolled .brand-word .bw-2{font
 .hero-content .lead{max-width:480px;margin:20px 0 28px;font-size:18px;color:var(--muted)}
 .hero-content .lead b{color:var(--gold-light);font-weight:700}
 .hero-media{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative}
-.hero-img{width:100%;max-width:430px;max-height:60vh;aspect-ratio:3/4;object-fit:cover;border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.6);border:1px solid rgba(123,63,228,.35);transition:opacity .25s var(--ease)}
-.hero-thumbs{display:flex;gap:10px;width:100%;max-width:430px}
-.hero-thumb{flex:1;background:rgba(123,63,228,.12);border:1.5px solid rgba(123,63,228,.35);border-radius:12px;padding:6px 6px 8px;cursor:pointer;transition:.2s var(--ease);display:flex;flex-direction:column;align-items:center;gap:5px}
-.hero-thumb img{width:100%;height:56px;object-fit:cover;border-radius:7px}
-.hero-thumb span{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:11px;color:var(--muted)}
-.hero-thumb:hover{border-color:var(--violet-glow);transform:translateY(-2px)}
-.hero-thumb.active{border-color:var(--gold);background:rgba(244,183,36,.15)}
-.hero-thumb.active span{color:var(--gold-light)}
+.hero-slider{position:relative;width:100%;max-width:430px;max-height:60vh;aspect-ratio:3/4;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.6);border:1px solid rgba(123,63,228,.35);background:#0b0710}
+.hero-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.hero-track::-webkit-scrollbar{display:none}
+.hero-slide{flex:0 0 100%;scroll-snap-align:center;display:flex;align-items:center;justify-content:center}
+.hero-slide img{width:100%;height:100%;object-fit:cover}
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:22px;text-align:center}
   .hero-content{max-width:none;margin:0 auto;order:1}
   .hero-content .lead{margin-left:auto;margin-right:auto}
   .hero-cta{justify-content:center}
   .hero-media{order:2}
-  .hero-img{width:86%;max-width:380px}
+  .hero-slider{width:86%;max-width:380px}
 }
 
 /* ---------- MARQUEE ---------- */
@@ -458,11 +455,15 @@ footer{background:var(--ink);padding:70px 0 30px;border-top:1px solid rgba(123,6
       </div>
     </div>
     <div class="hero-media reveal">
-      <img class="hero-img" id="heroImg" src="flagship-left-gold.png" alt="Custom purple and gold Cheque Book Racing BMW S1000RR" />
-      <div class="hero-thumbs">
-        <button type="button" class="hero-thumb active" onclick="setHero(this,'flagship-left-gold.png')"><img src="flagship-left-gold.png" alt="Left side"><span>Left</span></button>
-        <button type="button" class="hero-thumb" onclick="setHero(this,'flagship-front.png')"><img src="flagship-front.png" alt="Front"><span>Front</span></button>
-        <button type="button" class="hero-thumb" onclick="setHero(this,'flagship-right-gold.png')"><img src="flagship-right-gold.png" alt="Right side"><span>Right</span></button>
+      <div class="hero-slider">
+        <div class="hero-track" id="heroTrack">
+          <div class="hero-slide"><img src="flagship-left-gold.png" alt="Custom purple and gold Cheque Book Racing BMW S1000RR"></div>
+          <div class="hero-slide"><img src="flagship-front.png" alt="Cheque Book Racing BMW S1000RR front"></div>
+          <div class="hero-slide"><img src="flagship-right-gold.png" alt="Cheque Book Racing BMW S1000RR right side"></div>
+        </div>
+        <button class="build-arrow prev" onclick="heroNav(-1)" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="build-arrow next" onclick="heroNav(1)" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+        <div class="build-dots" id="heroDots"><i class="on"></i><i></i><i></i></div>
       </div>
     </div>
   </div>
@@ -978,13 +979,19 @@ function pickDay(y,m,d){
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
 
-/* ---------- HERO ANGLE SLIDER ---------- */
-function setHero(btn,src){
-  const img=document.getElementById('heroImg');
-  img.style.opacity=0;
-  setTimeout(()=>{ img.src=src; img.style.opacity=1; },160);
-  document.querySelectorAll('.hero-thumb').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
+/* ---------- HERO SLIDER (scroll-snap, same as builds) ---------- */
+(function(){
+  const track=document.getElementById('heroTrack'), dots=document.getElementById('heroDots').children;
+  track.addEventListener('scroll',()=>{
+    const i=Math.round(track.scrollLeft/track.clientWidth);
+    [...dots].forEach((d,k)=>d.classList.toggle('on',k===i));
+  },{passive:true});
+})();
+function heroNav(dir){
+  const track=document.getElementById('heroTrack');
+  const n=Math.round(track.scrollLeft/track.clientWidth)+dir;
+  const max=track.children.length-1;
+  track.scrollTo({left:Math.max(0,Math.min(max,n))*track.clientWidth,behavior:'smooth'});
 }
 
 /* ---------- REVEAL + SVG DRAW ---------- */
