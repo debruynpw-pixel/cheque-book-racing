@@ -6,6 +6,17 @@ Motorcycle workshop website — service, respray, custom paint & wraps, performa
 
 ---
 
+## 0. Recent changes (2026-07-07)
+
+- **Nav wordmark redesigned.** The old plain "Cheque Book / Racing" text was tiny on desktop and hidden on mobile — leaving an empty gap next to the badge logo. Rebuilt it as a styled CSS wordmark: **"CHEQUEBOOK / RACING"**, gold fill + purple outline, racing slant — matching the printed logo look.
+  - Bigger on desktop, now **visible on mobile** (fills the gap next to the logo, before the arrow button).
+  - Built with CSS text (Anton font), **not an image** — stays sharp at any size and blends into the dark header (the `wordmark.jpg` file has a white background, so it would show a white box — avoided).
+  - Auto-shrinks on scroll and on small screens so it never overflows or overlaps.
+  - Edit in `index.html`: CSS class `.brand-word` (styling) + the `<span class="brand-word">` markup in the nav.
+- **Deployed to production** via `vercel --prod`. ⚠️ This change was pushed to Vercel directly but **not yet committed to git** — run `git add index.html && git commit && git push origin main` to keep the repo in sync with live.
+
+---
+
 ## 1. Live links
 
 | What | URL |
@@ -30,7 +41,7 @@ A **single-file website** — everything (HTML + CSS + JS) lives in `index.html`
 
 - **Colours:** deep purple (`#120a20` / `#1a0f2e` / `#341c5c`), violet glow (`#7b3fe4` / `#9d5cff`), gold (`#f4b724`), cream text (`#f5f2ec`). Checkered-flag accents throughout.
 - **Fonts (Google):** Anton (headlines), Rajdhani (labels/techno), Inter (body).
-- **Logo:** `logo.jpg` (round helmet badge) in nav + footer. `wordmark.jpg` also in folder.
+- **Logo:** `logo.jpg` (round helmet badge) in nav + footer. Nav wordmark ("CHEQUEBOOK RACING") is **CSS text**, not an image — see §0. `wordmark.jpg` (white-bg image) stays in folder but is not used in the header.
 
 ---
 
